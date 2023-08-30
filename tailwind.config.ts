@@ -34,7 +34,7 @@ const config: Config = {
         "Neutral-5":"#C7CACF",
         "Neutral-6":"#D2D9E4",
         "Neutral-7":"#424A55",
-        "Neutral-8":"#424A55",
+        "Neutral-8":"#3EBF81",
         "Neutral-9":"#FFFFFF",
         "Neutral-10":"#242F40",
       }

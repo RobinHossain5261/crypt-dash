@@ -3,16 +3,12 @@ import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
 const LineChart = () => {
-  const chartRef = useRef(null);
+  const chartRef: any = useRef(null);
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
-    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "rgba(79, 69, 182, 0.8)");
-    gradient.addColorStop(1, "rgba(79, 69, 182, 0.1)");
-
-    const gradient1 = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient1.addColorStop(0, "rgba(100, 196, 247, 0.9)");
-    gradient1.addColorStop(1, "rgba(100, 196, 247, 0.3)");
+    const gradient = ctx.createLinearGradient(0, 0, 0, 280);
+    gradient.addColorStop(0, "rgba(12, 175, 96, 1)");
+    gradient.addColorStop(1, "rgba(12, 175, 96, 0)");
 
     const chartData = {
       labels: [
@@ -32,12 +28,23 @@ const LineChart = () => {
       datasets: [
         {
           label: "My Dataset",
-          data: [100, 200, 180, 270, 220, 256, 300, 280, 350, 330, 370, 430],
+          data: [3, 22, 10, 38, 40, 66, 65, 48, 85, 58, 37, 43],
           fill: true,
-          backgroundColor: "#0CAF60",
-          borderColor: "green",
-          borderWidth: 2,
-          pointRadius: 7,
+          backgroundColor: gradient,
+          borderColor: "#0CAF60",
+          borderWidth: 4,
+          pointRadius: 2,
+          tension: 0.4,
+          pointBackgroundColor: "white",
+        },
+        {
+          label: "My Dataset",
+          data: [38, 18, 20, 30, 78, 55, 75, 55, 12, 18, 20, 13],
+          fill: true,
+          borderColor: "#0CAF60",
+          borderWidth: 4,
+          pointRadius: 2,
+          tension: 0.4,
           pointBackgroundColor: "white",
         },
       ],
@@ -54,10 +61,10 @@ const LineChart = () => {
             display: false,
           },
           tooltip: {
-            backgroundColor: "#F5F7FD",
-            titleColor: "#2E293E",
+            backgroundColor: "#212B39",
+            titleColor: "#3EBF81",
             padding: 10,
-            bodyColor: "#2E293E",
+            bodyColor: "#FFF",
           },
         },
         scales: {
@@ -65,7 +72,7 @@ const LineChart = () => {
             beginAtZero: true,
 
             ticks: {
-              color: "#584E69",
+              color: "#D2D9E4",
               callback: function (value, index, values) {
                 return value + "k";
               },
@@ -73,7 +80,7 @@ const LineChart = () => {
           },
           x: {
             ticks: {
-              color: "#584E69",
+              color: "#D2D9E4",
             },
           },
         },
