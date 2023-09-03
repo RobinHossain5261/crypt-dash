@@ -14,6 +14,7 @@ import {
 } from "../../../../public/data/exchangeData";
 import DoughnutChart from "@/components/chart/DoughnutChart";
 import CandleStickLineChart from "@/components/chart/CandleStickLineChart";
+import CandlestickChart from "@/components/chart/CandleStickChart";
 
 const Exchange = () => {
   const [selectedCurencys, setSelectedCurencys] = useState(curencys[0]);
@@ -153,8 +154,10 @@ const Exchange = () => {
               </Tab>
             </Tab.List>
             <Tab.Panels className="mt-6">
-              <Tab.Panel>Content 1</Tab.Panel>
-              <Tab.Panel className="h-[200px] lg:h-[330px] w-full">
+              <Tab.Panel className="h-[200px] lg:h-[330px]">
+                <CandlestickChart />
+              </Tab.Panel>
+              <Tab.Panel className="h-[200px] lg:h-[330px]">
                 <CandleStickLineChart />
               </Tab.Panel>
             </Tab.Panels>

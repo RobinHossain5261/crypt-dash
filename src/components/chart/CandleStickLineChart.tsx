@@ -56,9 +56,6 @@ const CandleStickLineChart = () => {
         },
         scales: {
           y: {
-            grid: {
-              color: "#424A55",
-            },
             beginAtZero: true,
             display: false,
           },
