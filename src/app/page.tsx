@@ -1,3 +1,9 @@
+import DashBoard from "./(withlayout)/dashboard/page";
+
 export default function Home() {
-  return <main>main page</main>;
+  return (
+    <main>
+      <DashBoard />
+    </main>
+  );
 }

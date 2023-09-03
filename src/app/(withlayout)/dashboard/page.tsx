@@ -68,7 +68,7 @@ const DashBoard = () => {
               0.3475948
             </h3>
             <h5 className="text-lg text-Neutral-8">11,032.24 USD</h5>
-            <button className="text-xs text-[#F8FAFC] bg-gradient-to-r from-[#33AB71] to-[#06753F] px-2 py-1 rounded-xl mt-2 lg:mt-6">
+            <button className="text-xs text-[#F8FAFC] bg-gradient-to-r from-[#33AB71] to-[#06753F] px-2 py-1 rounded-lg mt-2 lg:mt-6">
               Withdraw
             </button>
           </div>
