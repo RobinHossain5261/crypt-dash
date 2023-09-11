@@ -472,62 +472,60 @@ const Exchange = () => {
                 <h5 className="text-base text-Neutral-6 font-bold leading-[24px] mb-3">
                   Coin
                 </h5>
-                <div>
-                  <Listbox
-                    value={selectedCurencys}
-                    onChange={setSelectedCurencys}
-                  >
-                    <Listbox.Button className="flex gap-2 items-center  relative w-full rounded-lg text-Neutral-6 bg-Primary-bg  py-3 px-4 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm  cursor-pointer">
-                      <span className="flex gap-2 items-center justify-between w-full">
-                        <span className="flex gap-2 items-center">
-                          <Image
-                            className="w-10 h-10 rounded-full"
-                            src={selectedCurencys.img}
-                            alt="curency"
-                          />
-                          <span className="flex flex-wrap justify-between gap-2">
-                            <span className="text-xl text-Neutral-6 font-bold leading-[24px]">
-                              {selectedCurencys.coin}
-                            </span>
-                            <span className="text-xl text-Neutral-6 leading-[24px]">
-                              {selectedCurencys.sort}
+                <Listbox
+                  value={selectedCurencys}
+                  onChange={setSelectedCurencys}
+                >
+                  <Listbox.Button className="flex gap-2 items-center  relative w-full rounded-lg text-Neutral-6 bg-Primary-bg  py-3 px-4 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm  cursor-pointer">
+                    <span className="flex gap-2 items-center justify-between w-full">
+                      <span className="flex gap-2 items-center flex-1">
+                        <Image
+                          className="w-10 h-10 rounded-full"
+                          src={selectedCurencys.img}
+                          alt="curency"
+                        />
+                        <span className="flex flex-1 flex-wrap justify-between gap-2">
+                          <span className="text-xl text-Neutral-6 font-bold leading-[24px]">
+                            {selectedCurencys.coin}
+                          </span>
+                          <span className="text-xl text-Neutral-6 leading-[24px]">
+                            {selectedCurencys.sort}
+                          </span>
+                        </span>
+                      </span>
+                      <span className="material-symbols-outlined">
+                        expand_more
+                      </span>
+                    </span>
+                  </Listbox.Button>
+                  <Listbox.Options className="w-[250px] bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer z-10">
+                    {curencys.map((curency) => (
+                      <Listbox.Option
+                        key={curency.id}
+                        value={curency}
+                        disabled={curency.unavailable}
+                      >
+                        <span>
+                          <span className="flex items-center gap-2 mt-4">
+                            <Image
+                              className="w-10 h-10 rounded-full"
+                              src={curency.img}
+                              alt="curency"
+                            />
+                            <span>
+                              <span className="block text-base text-Neutral-6 leading-[24px]">
+                                {curency.name}
+                              </span>
+                              <span className="block text-Neutral-5 text-xs leading-[18px]">
+                                {curency.coin}
+                              </span>
                             </span>
                           </span>
                         </span>
-                        <span className="material-symbols-outlined">
-                          expand_more
-                        </span>
-                      </span>
-                    </Listbox.Button>
-                    <Listbox.Options className="w-[250px] bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer z-10">
-                      {curencys.map((curency) => (
-                        <Listbox.Option
-                          key={curency.id}
-                          value={curency}
-                          disabled={curency.unavailable}
-                        >
-                          <li>
-                            <span className="flex items-center gap-2 mt-4">
-                              <Image
-                                className="w-10 h-10 rounded-full"
-                                src={curency.img}
-                                alt="curency"
-                              />
-                              <span>
-                                <span className="block text-base text-Neutral-6 leading-[24px]">
-                                  {curency.name}
-                                </span>
-                                <span className="block text-Neutral-5 text-xs leading-[18px]">
-                                  {curency.coin}
-                                </span>
-                              </span>
-                            </span>
-                          </li>
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  </Listbox>
-                </div>
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Listbox>
                 <div className="mt-6">
                   <h5 className="text-base text-Neutral-6 font-bold leading-[24px] mb-3">
                     Amount
@@ -576,62 +574,60 @@ const Exchange = () => {
                 <h5 className="text-base text-Neutral-6 font-bold leading-[24px] mb-3">
                   Coin
                 </h5>
-                <div>
-                  <Listbox
-                    value={selectedCurencys}
-                    onChange={setSelectedCurencys}
-                  >
-                    <Listbox.Button className="flex gap-2 items-center  relative w-full rounded-lg text-Neutral-6 bg-Primary-bg  py-3 px-4 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm  cursor-pointer">
-                      <span className="flex gap-2 items-center justify-between w-full">
-                        <span className="flex gap-2 items-center">
-                          <Image
-                            className="w-10 h-10 rounded-full"
-                            src={selectedCurencys.img}
-                            alt="curency"
-                          />
-                          <span className="flex flex-wrap justify-between gap-2">
-                            <span className="text-xl text-Neutral-6 font-bold leading-[24px]">
-                              {selectedCurencys.coin}
-                            </span>
-                            <span className="text-xl text-Neutral-6 leading-[24px]">
-                              {selectedCurencys.sort}
+                <Listbox
+                  value={selectedCurencys}
+                  onChange={setSelectedCurencys}
+                >
+                  <Listbox.Button className="flex gap-2 items-center  relative w-full rounded-lg text-Neutral-6 bg-Primary-bg  py-3 px-4 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm  cursor-pointer">
+                    <span className="flex gap-2 items-center justify-between w-full">
+                      <span className="flex gap-2 items-center flex-1">
+                        <Image
+                          className="w-10 h-10 rounded-full"
+                          src={selectedCurencys.img}
+                          alt="curency"
+                        />
+                        <span className="flex flex-1 flex-wrap justify-between gap-2">
+                          <span className="text-xl text-Neutral-6 font-bold leading-[24px]">
+                            {selectedCurencys.coin}
+                          </span>
+                          <span className="text-xl text-Neutral-6 leading-[24px]">
+                            {selectedCurencys.sort}
+                          </span>
+                        </span>
+                      </span>
+                      <span className="material-symbols-outlined">
+                        expand_more
+                      </span>
+                    </span>
+                  </Listbox.Button>
+                  <Listbox.Options className="w-[250px] bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer z-10">
+                    {curencys.map((curency) => (
+                      <Listbox.Option
+                        key={curency.id}
+                        value={curency}
+                        disabled={curency.unavailable}
+                      >
+                        <span>
+                          <span className="flex items-center gap-2 mt-4">
+                            <Image
+                              className="w-10 h-10 rounded-full"
+                              src={curency.img}
+                              alt="curency"
+                            />
+                            <span>
+                              <span className="block text-base text-Neutral-6 leading-[24px]">
+                                {curency.name}
+                              </span>
+                              <span className="block text-Neutral-5 text-xs leading-[18px]">
+                                {curency.coin}
+                              </span>
                             </span>
                           </span>
                         </span>
-                        <span className="material-symbols-outlined">
-                          expand_more
-                        </span>
-                      </span>
-                    </Listbox.Button>
-                    <Listbox.Options className="w-[250px] bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer z-10">
-                      {curencys.map((curency) => (
-                        <Listbox.Option
-                          key={curency.id}
-                          value={curency}
-                          disabled={curency.unavailable}
-                        >
-                          <li>
-                            <span className="flex items-center gap-2 mt-4">
-                              <Image
-                                className="w-10 h-10 rounded-full"
-                                src={curency.img}
-                                alt="curency"
-                              />
-                              <span>
-                                <span className="block text-base text-Neutral-6 leading-[24px]">
-                                  {curency.name}
-                                </span>
-                                <span className="block text-Neutral-5 text-xs leading-[18px]">
-                                  {curency.coin}
-                                </span>
-                              </span>
-                            </span>
-                          </li>
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  </Listbox>
-                </div>
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Listbox>
                 <div className="mt-6">
                   <h5 className="text-base text-Neutral-6 font-bold leading-[24px] mb-3">
                     Amount
