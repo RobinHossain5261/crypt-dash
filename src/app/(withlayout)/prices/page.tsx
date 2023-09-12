@@ -3,7 +3,6 @@ import Image from "next/image";
 import { smallCharts } from "../../../../public/data/dashBoardData";
 import { prices } from "../../../../public/data/pricesData";
 import "material-symbols";
-import { useState } from "react";
 
 const Prices = () => {
   // table star button color toggle
@@ -15,7 +14,7 @@ const Prices = () => {
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {smallCharts.map((chart) => (
-          <div className="px-5 py-4 bg-Primary-3 rounded-lg">
+          <div key={chart.id} className="px-5 py-4 bg-Primary-3 rounded-lg">
             <div className="flex flex-wrap items-center justify-between">
               <div>
                 <span className="text-base text-Neutral-9">{chart.name}</span>
@@ -159,6 +158,7 @@ const Prices = () => {
           </table>
         </div>
       </section>
+      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

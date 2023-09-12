@@ -26,7 +26,6 @@ export const prices = [
     volume: "$880,423",
     img: Ethereum,
     charts: graph,
-    isActive: false,
   },
   {
     id: 2,
@@ -38,7 +37,6 @@ export const prices = [
     volume: "$880,423",
     img: Bitcoin,
     charts: graph1,
-    isActive: false,
   },
   {
     id: 3,
@@ -50,7 +48,6 @@ export const prices = [
     volume: "$880,423",
     img: Stellar,
     charts: graph3,
-    isActive: false,
   },
   {
     id: 4,
@@ -62,7 +59,6 @@ export const prices = [
     volume: "$880,423",
     img: Litecoin,
     charts: graph2,
-    isActive: false,
   },
   {
     id: 5,
@@ -74,7 +70,6 @@ export const prices = [
     volume: "$880,423",
     img: Dogecoin,
     charts: graph,
-    isActive: true,
   },
   {
     id: 6,
@@ -95,7 +90,7 @@ export const prices = [
     color: "#FC774A",
     cap: " $471,000 ",
     volume: "$880,423",
-    img: Litecoin,
+    img: achain,
     charts: graph3,
   },
   {

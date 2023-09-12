@@ -23,3 +23,19 @@
 .iconSize{
     font-size: 16px !important;
 }
+
+/* animation progressbar */
+.progressorRun{
+  animation: progressor 2s ease-in-out forwards;
+}
+
+@keyframes progressor{
+    0% {
+      width: 0;
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
