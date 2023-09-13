@@ -55,7 +55,7 @@ const Activities = () => {
                   </Tab>
                 </Tab.List>
                 <select className="bg-Primary-3 text-Neutral-5 text-base border border-Neutral-10 px-4 py-2 rounded-lg outline-none">
-                  <option selected>All Times</option>
+                  <option>All Times</option>
                   <option>This Month</option>
                   <option>This Week</option>
                 </select>
