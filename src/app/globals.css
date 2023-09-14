@@ -47,3 +47,9 @@
       opacity: 1;
     }
   }
+
+
+  .btnShadow{
+    box-shadow: 0px 1.00023px 2.00047px 0px rgba(0, 0, 0, 0.20);
+
+  }
