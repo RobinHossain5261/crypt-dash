@@ -7,7 +7,7 @@ import "material-symbols";
 const Error = () => {
   return (
     <div className="min-h-screen bg-Primary-bg flex items-center justify-center">
-      <div className="">
+      <div>
         <Image src={error} alt="error" className="object-cover w-full" />
         <h3 className="text-white text-2xl lg:text-[32px] font-semibold leading-[38px] mt-6 text-center">
           Oops! Page not found
@@ -19,7 +19,7 @@ const Error = () => {
         <div className="text-center">
           <button className="bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-2 py-1 mt-8">
             <Link
-              href="#"
+              href="/dashboard"
               className="flex items-center gap-2 text-[#F8FAFC] text-xs "
             >
               <span>Go Back To Home Page</span>
