@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #131720;
+    overflow-x: hidden;
+}
+
+.activePath {
+  color: #3EBF81;
+  border:1px solid #3EBF81;
+}
+
 /* scrollbar style */
 ::-webkit-scrollbar {
     width: 7px;
