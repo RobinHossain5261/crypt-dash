@@ -44,7 +44,7 @@ const Exchange = () => {
                 </span>
               </span>
             </Listbox.Button>
-            <Listbox.Options className="w-[200px] bg-Primary-3 text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer">
+            <Listbox.Options className="w-[200px] bg-Primary-3 text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer z-[5]">
               {curencys.map((curency) => (
                 <Listbox.Option
                   key={curency.id}
@@ -123,7 +123,7 @@ const Exchange = () => {
 
       {/* Chart part start  */}
       <section className="mt-6 gap-6 grid grid-cols-12">
-        <div className="bg-Primary-3 px-7 py-6 rounded-xl col-span-12 lg:col-span-8">
+        <div className="bg-Primary-3 px-2 lg:px-7 py-6 rounded-xl col-span-12 lg:col-span-8">
           <Tab.Group>
             <Tab.List>
               <Tab as={Fragment}>
@@ -154,7 +154,7 @@ const Exchange = () => {
               </Tab>
             </Tab.List>
             <Tab.Panels className="mt-6">
-              <Tab.Panel className="h-[200px] lg:h-[330px]">
+              <Tab.Panel>
                 <CandlestickChart />
               </Tab.Panel>
               <Tab.Panel className="h-[200px] lg:h-[330px]">
@@ -183,7 +183,7 @@ const Exchange = () => {
 
       {/* Market Trades */}
       <section className="mt-6 gap-6 grid grid-cols-12">
-        <div className="bg-Primary-3 px-7 py-6 rounded-xl col-span-12 lg:col-span-8">
+        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl col-span-12 lg:col-span-8">
           <div>
             <Tab.Group>
               <div className="flex flex-wrap gap-2 justify-between items-center">
@@ -322,9 +322,9 @@ const Exchange = () => {
           </div>
         </div>
 
-        <div className="bg-Primary-3 p-7 rounded-xl col-span-12 lg:col-span-4">
+        <div className="bg-Primary-3 p-3 lg:p-7 rounded-xl col-span-12 lg:col-span-4">
           <Tab.Group>
-            <Tab.List className="flex flex-wrap gap-2 justify-between">
+            <Tab.List className="flex  gap-2 justify-between">
               <Tab as={Fragment}>
                 {({ selected }) => (
                   <button

@@ -58,7 +58,7 @@ export default function RootLayout({ children }: Props) {
           showNav && !isMobile ? "lg:pl-[280px] md:pl-[280px] pl-[100%]" : ""
         }`}
       >
-        <div className="lg:mt-10">{children}</div>
+        <div className="mt-10">{children}</div>
         {/* <Footer /> */}
       </div>
     </>

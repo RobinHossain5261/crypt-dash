@@ -37,6 +37,10 @@ body {
     font-size: 16px !important;
 }
 
+.topbarIcon{
+  font-size: 40px;
+}
+
 /* border gradient  */
 .border-gradient{
   background: linear-gradient(#2E3549,#2E3549)padding-box,linear-gradient(to top left,#FE53BB,#09FBD3) border-box;
