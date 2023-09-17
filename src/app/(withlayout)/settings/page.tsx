@@ -39,7 +39,7 @@ const Settings = () => {
             />
             <button
               onClick={onButtonClick}
-              className="absolute bottom-2 right-[35%]"
+              className="absolute bottom-2 right-[35%] hidden lg:block"
             >
               <span className="w-[30px] h-[30px] p-1 rounded-full bg-Neutral-2 flex items-center justify-center">
                 <span className="material-symbols-outlined w-6 h-6 text-Neutral-8">
@@ -88,7 +88,7 @@ const Settings = () => {
         </div>
         <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl w-full h-full mt-6 lg:mt-0">
           <Tab.Group>
-            <Tab.List className="flex flex-wrap gap-2 lg:gap-10 mb-8">
+            <Tab.List className="flex flex-wrap gap-2 xl:gap-10 mb-3 xl:mb-8">
               <Tab as={Fragment}>
                 {({ selected }) => (
                   <button
@@ -145,7 +145,7 @@ const Settings = () => {
             <Tab.Panels>
               <Tab.Panel>
                 <form>
-                  <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
@@ -172,7 +172,7 @@ const Settings = () => {
                       />
                     </div>
                   </div>
-                  <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
@@ -199,7 +199,7 @@ const Settings = () => {
                       />
                     </div>
                   </div>
-                  <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
@@ -226,7 +226,7 @@ const Settings = () => {
                       />
                     </div>
                   </div>
-                  <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
@@ -253,7 +253,7 @@ const Settings = () => {
                       />
                     </div>
                   </div>
-                  <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
@@ -335,7 +335,7 @@ const Settings = () => {
                 </form>
               </Tab.Panel>
               <Tab.Panel>
-                <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
+                <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                   <div className="form-control w-full">
                     <label className="label">
                       <span className="text-base text-Neutral-6">
@@ -393,8 +393,8 @@ const Settings = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:flex block gap-[60px] mb-2 lg:mb-6">
-                  <div className="form-control w-full lg:w-1/2">
+                <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
+                  <div className="form-control w-full xl:w-1/2">
                     <label className="label">
                       <span className="text-base text-Neutral-6">
                         Confirm New Password
@@ -422,9 +422,8 @@ const Settings = () => {
                       </label>
                     </div>
                   </div>
-                  <div className="w-1/2 relative mt-3 lg:mt-0">
-                    <button className="px-4 py-2 text-[#F8FAFC] text-xs bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded lg:absolute lg:bottom-0">
-                      {" "}
+                  <div className="w-1/2 relative mt-3 xl:mt-0">
+                    <button className="px-4 py-2 text-[#F8FAFC] text-xs bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded xl:absolute xl:bottom-0">
                       Update Password
                     </button>
                   </div>

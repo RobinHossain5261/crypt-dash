@@ -25,7 +25,7 @@ const Notifications = () => {
                 key={item.id}
                 className="flex flex-wrap items-center justify-between border-Neutral-10 border-t"
               >
-                <div className="flex flex-wrap items-center gap-3 my-5">
+                <div className="flex flex-wrap items-center gap-3 my-5  xl:w-[70%]">
                   <Image
                     src={item.img}
                     alt="buyer"
@@ -45,7 +45,8 @@ const Notifications = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-8">
+
+                <div className="flex items-center justify-between gap-8">
                   <span className="text-Neutral-6 text-xs leading-[18px]">
                     {item.time}
                   </span>

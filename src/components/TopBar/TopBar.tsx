@@ -30,13 +30,13 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
             menu
           </span>
         </button>
-        <form className="hidden md:flex items-center border border-Neutral-1 px-4 py-3 rounded-lg ml-8">
+        <form className="hidden lg:flex items-center border border-Neutral-1 px-4 py-3 rounded-lg ml-8">
           <input
             type="text"
             placeholder="Search..."
             className="outline-none text-Neutral-5 bg-Primary-3"
           />
-          <span className="material-symbols-outlined cursor-pointer w-4 h-4 text-Neutral-6 dark:text-myWhite">
+          <span className="material-symbols-outlined cursor-pointer text-Neutral-6">
             search
           </span>
         </form>
@@ -61,7 +61,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute -right-28 mt-2 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="absolute -right-28 mt-4 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none identify">
               <div className="px-1 py-1 ">
                 <Menu.Item>
                   <div className="w-64 lg:w-80 bg-Neutral-10 p-3 rounded-xl">
@@ -116,7 +116,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute -right-8 mt-2 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="absolute -right-8 mt-4 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none identify-notificition">
               <div className="px-1 py-1 ">
                 <Menu.Item>
                   <div className="w-64 lg:w-80 bg-Neutral-10 p-3 rounded-xl">

@@ -4,6 +4,7 @@ import { Transition } from "@headlessui/react";
 import TopBar from "@/components/TopBar/TopBar";
 import "material-symbols";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import Footer from "@/components/Footer/Footer";
 // import Footer from "@/components/Footer/Footer";
 
 interface Props {
@@ -50,7 +51,6 @@ export default function RootLayout({ children }: Props) {
         leaveFrom="translate-x-0"
         leaveTo="-translate-x-full"
       >
-        {/* <SideMenu showNav={showNav} setShowNav={setShowNav} /> */}
         <Sidebar showNav={showNav} setShowNav={setShowNav} />
       </Transition>
       <div
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: Props) {
         }`}
       >
         <div className="mt-10">{children}</div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );

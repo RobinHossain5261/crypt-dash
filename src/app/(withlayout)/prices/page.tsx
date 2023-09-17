@@ -158,7 +158,6 @@ const Prices = () => {
           </table>
         </div>
       </section>
-      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

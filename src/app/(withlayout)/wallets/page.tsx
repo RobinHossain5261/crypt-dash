@@ -10,7 +10,7 @@ const Wallets = () => {
       <section className="gap-6 grid grid-cols-12">
         <div className="bg-Primary-3 col-span-12 lg:col-span-3 rounded-xl p-2 md:px-7 md:py-6">
           <div className="text-center mt-2 lg:mt-5">
-            <div className="flex items-center justify-center gap-2 mb-7">
+            <div className="flex items-center justify-center gap-2 mb-3 lg:mb-7">
               <Image
                 src={bitcoin}
                 alt="currency"
@@ -21,11 +21,11 @@ const Wallets = () => {
             <h4 className="text-lg text-Neutral-6 leading-[27px]">
               Total Balance
             </h4>
-            <h3 className="text-[40px] lg:text-[32px] font-semibold text-Neutral-9 my-1 lg:my-2">
+            <h3 className="xxl:text-[40px] text-xl font-semibold text-Neutral-9 my-1 lg:my-2">
               0.3475948
             </h3>
             <h5 className="text-lg text-Neutral-8">11,032.24 USD</h5>
-            <div className="mt-2 lg:mt-7 flex gap-5 justify-center">
+            <div className="mt-2 lg:mt-7 flex flex-wrap gap-5 justify-center">
               <button className="text-xs text-[#F8FAFC] bg-gradient-to-r from-[#33AB71] to-[#06753F] px-2 py-1 rounded-lg ">
                 Withdraw
               </button>
@@ -146,7 +146,6 @@ const Wallets = () => {
           </div>
         </div>
       </section>
-      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

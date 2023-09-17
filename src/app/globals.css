@@ -15,6 +15,32 @@ body {
   border:1px solid #3EBF81;
 }
 
+.identify::before
+{
+content:'';
+width:30px;
+height:25px;
+border-bottom: 30px solid #242F40;
+position: absolute;
+border-left: 15px solid transparent;
+border-right: 15px solid transparent;
+right:42%;
+top: -20px;
+}
+
+.identify-notificition::before{
+content:'';
+width:30px;
+height:25px;
+border-bottom: 30px solid #242F40;
+position: absolute;
+border-left: 15px solid transparent;
+border-right: 15px solid transparent;
+right:15%;
+top: -20px;
+}
+
+
 /* scrollbar style */
 ::-webkit-scrollbar {
     width: 7px;

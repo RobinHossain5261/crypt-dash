@@ -36,7 +36,7 @@ const DashBoard = () => {
       {/* Monthly Overall Growth  */}
       <section className="mt-6 gap-6 grid grid-cols-12">
         {/* Line chart  */}
-        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 lg:col-span-9">
+        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 xl:col-span-9">
           <div className="flex gap-3 flex-wrap justify-between items-center mb-6">
             <h3 className="text-Neutral-6 text-xl font-semibold leading-[26px]">
               Monthly Overall Growth
@@ -58,7 +58,7 @@ const DashBoard = () => {
           </div>
         </div>
         {/* Doughunt chart  */}
-        <div className="bg-Primary-3 col-span-12 lg:col-span-3 rounded-xl p-2 md:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 xl:col-span-3 rounded-xl p-2 xxl:px-7 md:py-6">
           <DoughnutChart />
           <div className="text-center mt-2 lg:mt-5">
             <h4 className="text-2xl text-Neutral-6 leading-[36px]">
@@ -77,7 +77,7 @@ const DashBoard = () => {
 
       <section className="mt-6 gap-6 grid grid-cols-12">
         {/* Table start */}
-        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 lg:col-span-9">
+        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 xl:col-span-9">
           <h5 className="text-xl font-semibold text-white leading-[26px] mb-5">
             Active Overall Growth
           </h5>
@@ -143,7 +143,7 @@ const DashBoard = () => {
                           backgroundColor: data.bgColor,
                           color: data.color,
                         }}
-                        className="text-base text-Neutral-6 leading-[24px] px-3 py-1 rounded"
+                        className="text-base text-Neutral-6 leading-[24px] px-3 py-1 rounded flex items-center justify-center"
                       >
                         {data.status}
                       </div>
@@ -160,15 +160,15 @@ const DashBoard = () => {
           </div>
         </div>
         {/* Recent Transaction */}
-        <div className="bg-Primary-3 col-span-12 lg:col-span-3 rounded-xl p-2 lg:px-7 lg:py-6">
+        <div className="bg-Primary-3 col-span-12 xl:col-span-3 rounded-xl p-4 lg:px-7 lg:py-6">
           <h5 className="text-xl font-semibold leading-[26px] text-white mb-4">
             Recent Transaction
           </h5>
           <div>
             {transactions.map((transaction) => (
               <div>
-                <div className="flex justify-between items-center">
-                  <div className="flex gap-2 items-center">
+                <div className="flex flex-wrap justify-between items-center">
+                  <div className="flex flex-wrap gap-2 items-center">
                     <Image
                       className="w-8 h-8 rounded-full"
                       src={transaction.img}
@@ -193,7 +193,6 @@ const DashBoard = () => {
           </div>
         </div>
       </section>
-      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

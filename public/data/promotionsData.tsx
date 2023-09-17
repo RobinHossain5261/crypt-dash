@@ -83,7 +83,7 @@ export const promotions = [
   {
     id: 12,
     title: "In sodales odio ligula, id pharetra erat maximus vitae.",
-    image: img12,
+    image: img5,
     date: "Sep 01th - Oct 23th",
   },
 ];

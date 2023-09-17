@@ -167,10 +167,10 @@ const Exchange = () => {
         <div className="bg-Primary-3 col-span-12 lg:col-span-4 rounded-xl p-2 md:px-7 md:py-6">
           <DoughnutChart />
           <div className="text-center mt-2 lg:mt-5">
-            <h4 className="text-2xl text-Neutral-6 leading-[36px]">
+            <h4 className="text-xl xxl:text-2xl text-Neutral-6 leading-[36px]">
               Total Balance
             </h4>
-            <h3 className="text-[40px] font-semibold text-Neutral-9 my-1 lg:my-3">
+            <h3 className="text-3xl xxl:text-[40px] font-semibold text-Neutral-9 my-1 lg:my-3">
               0.3475948
             </h3>
             <h5 className="text-lg text-Neutral-8">11,032.24 USD</h5>
@@ -324,14 +324,14 @@ const Exchange = () => {
 
         <div className="bg-Primary-3 p-3 lg:p-7 rounded-xl col-span-12 lg:col-span-4">
           <Tab.Group>
-            <Tab.List className="flex  gap-2 justify-between">
+            <Tab.List className="flex flex-wrap gap-5">
               <Tab as={Fragment}>
                 {({ selected }) => (
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
                     }
                   >
                     Buy
@@ -343,8 +343,8 @@ const Exchange = () => {
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
                     }
                   >
                     Sell
@@ -356,8 +356,8 @@ const Exchange = () => {
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[150px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
                     }
                   >
                     Exchange
@@ -676,7 +676,6 @@ const Exchange = () => {
           </Tab.Group>
         </div>
       </section>
-      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

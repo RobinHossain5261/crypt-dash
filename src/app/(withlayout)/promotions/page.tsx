@@ -11,7 +11,7 @@ const Promotions = () => {
       <div>
         <Tab.Group>
           <div className="flex justify-between items-center mb-6">
-            <h4 className="text-white text-2xl font-semibold leading-[31.2px]">
+            <h4 className="text-white text-xl md:text-2xl font-semibold leading-[31.2px]">
               Latest Promotions
             </h4>
             <Tab.List className="flex gap-6">
@@ -76,17 +76,19 @@ const Promotions = () => {
                 </div>
               ))}
             </Tab.Panel>
-            <Tab.Panel className="grid gap-6 grid-cols-1 lg:grid-cols-2 xxl:grid-cols-3">
+            <Tab.Panel className="grid gap-6 grid-cols-1 xl:grid-cols-2 xxl:grid-cols-3">
               {promotions.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-Primary-3 rounded-xl overflow-hidden border-gradient flex items-center"
+                  className="bg-Primary-3 rounded-xl overflow-hidden border-gradient block lg:flex items-center"
                 >
-                  <div className="relative h-full ">
+                  <div className="relative shrink-0 w-full  md:w-[241px] xl:h-full">
                     <Image
+                      width={241}
+                      height={220}
                       src={item.image}
                       alt="promotions"
-                      className="w-full h-full object-cover"
+                      className="object-cover w-full h-[220px] xl:h-full"
                     />
                     <span className="bg-Neutral-8 text-Primary-3 text-xs leading-[18px] px-2 py-1 rounded-lg absolute top-4 left-4">
                       {item.date}
@@ -109,7 +111,6 @@ const Promotions = () => {
           </Tab.Panels>
         </Tab.Group>
       </div>
-      <hr className="mt-6 border-Neutral-10" />
     </div>
   );
 };

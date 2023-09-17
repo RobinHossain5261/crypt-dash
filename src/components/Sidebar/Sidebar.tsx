@@ -14,6 +14,7 @@ import logo from "@/../public/images/logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import dashIcon from "@/../public/images/dasboard.png";
+import dashboardIcon from "@/../public/images/dashboardIcon.png";
 
 type propsType = {
   showNav: boolean;
@@ -60,7 +61,7 @@ const Sidebar = forwardRef(({ showNav, setShowNav }: propsType, ref: any) => {
           </span>
         </div>
       </div>
-      <ul className="mx-6">
+      <ul className="mx-6 z-[3]">
         <li className="mb-4 cursor-pointer">
           <Link
             href="/dashboard"
@@ -69,7 +70,17 @@ const Sidebar = forwardRef(({ showNav, setShowNav }: propsType, ref: any) => {
               currentRoute === "/dashboard" ? "activePath" : ""
             }`}
           >
-            <Image src={dashIcon} alt="Dashboard" width={20} height={20} />
+            {currentRoute === "/dashboard" ? (
+              <Image src={dashIcon} alt="Dashboard" width={20} height={20} />
+            ) : (
+              <Image
+                src={dashboardIcon}
+                alt="DashboardIcon"
+                width={20}
+                height={20}
+              />
+            )}
+
             <span className="text-base font-semibold">Dashbord</span>
           </Link>
         </li>
@@ -251,39 +262,23 @@ const Sidebar = forwardRef(({ showNav, setShowNav }: propsType, ref: any) => {
                   <span className="text-base font-semibold">Sign Up</span>
                 </Link>
               </li>
-              <li
-                onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-                className={`text-base mx-3 px-4 py-1 mt-1 rounded-full text-myBlack dark:text-myWhite dark:hover:text-myGreen hover:text-myBlue hover:pl-6 transition-all ${
-                  currentRoute === "/utillity/signup" ? "activeDropdown" : ""
-                }`}
-              >
-                <Link href="/utillity/signup">Sign up</Link>
-              </li>
             </ul>
           </AnimateHeight>
         </li>
       </ul>
-
       <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-        <Listbox.Button className="text-white bg-gradient-to-r from-[#33AB71] to-[#06753F] flex gap-2 items-center justify-between pl-4 pr-2 py-3 ml-6 mt-24 rounded">
+        <Listbox.Button className="text-white bg-gradient-to-r from-[#33AB71] to-[#06753F] flex gap-2 items-center justify-between pl-4 pr-2 py-3 ml-6 mt-5 rounded z-[5]">
           {selectedPerson.name}
           <span className="material-symbols-outlined dark:text-myGreen">
             expand_more
           </span>
         </Listbox.Button>
-        <Listbox.Options className="mx-6 mt-1 w-36 rounded">
-          {languages.map((person) => (
-            <Listbox.Option key={person.id} value={person} as={Fragment}>
-              {({ active, selected }) => (
-                <li
-                  className={`cursor-pointer ${
-                    active ? "bg-Neutral-8 text-white" : "bg-white text-black"
-                  }`}
-                >
-                  {selected}
-                  {person.name}
-                </li>
-              )}
+        <Listbox.Options className="mx-6  w-36 rounded bg-Primary-bg text-white p-3 ">
+          {languages.map((language) => (
+            <Listbox.Option key={language.id} value={language} as={Fragment}>
+              <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                {language.name}
+              </li>
             </Listbox.Option>
           ))}
         </Listbox.Options>
