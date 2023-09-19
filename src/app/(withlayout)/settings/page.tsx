@@ -4,15 +4,44 @@ import profile from "@/../public/images/profile.png";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
 import "material-symbols";
-import { Tab } from "@headlessui/react";
+import { Listbox, Tab } from "@headlessui/react";
 import code from "@/../public/images/Code.png";
 import { loginHistory } from "../../../../public/data/settingsData";
 import Link from "next/link";
+import OtpInput from "react-otp-input";
+
+const depositAssets = [
+  { id: 1, name: "Disabled", unavailable: false },
+  { id: 2, name: "2500", unavailable: false },
+  { id: 3, name: "1500", unavailable: false },
+];
+const withdrawAssets = [
+  { id: 1, name: "Enabled 1,11000 USD/Day", unavailable: false },
+  { id: 2, name: "2500", unavailable: false },
+  { id: 3, name: "1500", unavailable: false },
+];
 
 const Settings = () => {
+  const [otp, setOtp] = useState("");
+
+  const [selectedDepositAssets, setSelectedDepositAssets] = useState(
+    depositAssets[0]
+  );
+  const [selectedWithdrawAssets, setSelectedWithdrawAssets] = useState(
+    withdrawAssets[0]
+  );
+
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(!show);
+  };
+  const [show1, setShow1] = useState(false);
+  const handleShow1 = () => {
+    setShow1(!show1);
+  };
+  const [show2, setShow2] = useState(false);
+  const handleShow2 = () => {
+    setShow2(!show2);
   };
 
   const inputFile: any = useRef(null);
@@ -148,7 +177,7 @@ const Settings = () => {
                   <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           First Name
                         </span>
                       </label>
@@ -161,7 +190,7 @@ const Settings = () => {
 
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Last Name
                         </span>
                       </label>
@@ -175,7 +204,7 @@ const Settings = () => {
                   <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Email Address
                         </span>
                       </label>
@@ -188,7 +217,7 @@ const Settings = () => {
 
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Phone Number
                         </span>
                       </label>
@@ -202,7 +231,7 @@ const Settings = () => {
                   <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Joining Date
                         </span>
                       </label>
@@ -215,7 +244,7 @@ const Settings = () => {
 
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           City
                         </span>
                       </label>
@@ -229,7 +258,7 @@ const Settings = () => {
                   <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Country
                         </span>
                       </label>
@@ -242,7 +271,7 @@ const Settings = () => {
 
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Zip Code
                         </span>
                       </label>
@@ -256,17 +285,67 @@ const Settings = () => {
                   <div className="xl:flex block gap-[60px] mb-2 lg:mb-6">
                     <div className="form-control w-full">
                       <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
                           Deposit Assets
                         </span>
                       </label>
-                      <select className=" w-full px-2 py-[10px] outline-none rounded bg-Primary-3 text-Neutral-1 border border-Neutral-10 text-base">
-                        <option>Disabled</option>
-                        <option>2500</option>
-                        <option>3000</option>
-                      </select>
+                      <Listbox
+                        value={selectedDepositAssets}
+                        onChange={setSelectedDepositAssets}
+                      >
+                        <Listbox.Button className="text-Neutral-1 flex gap-2 items-center justify-between px-2 py-[10px] rounded z-[5] border border-Neutral-10">
+                          {selectedDepositAssets.name}
+                          <span className="material-symbols-outlined">
+                            expand_more
+                          </span>
+                        </Listbox.Button>
+                        <Listbox.Options className="w-full rounded bg-Primary-bg text-white p-3">
+                          {depositAssets.map((asset) => (
+                            <Listbox.Option
+                              key={asset.id}
+                              value={asset}
+                              as={Fragment}
+                            >
+                              <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                                {asset.name}
+                              </li>
+                            </Listbox.Option>
+                          ))}
+                        </Listbox.Options>
+                      </Listbox>
                     </div>
                     <div className="form-control w-full">
+                      <label className="label">
+                        <span className="text-base text-Neutral-6 font-semibold mb-1 lg:mb-3">
+                          Enabled 1,11000 USD/Day
+                        </span>
+                      </label>
+                      <Listbox
+                        value={selectedWithdrawAssets}
+                        onChange={setSelectedWithdrawAssets}
+                      >
+                        <Listbox.Button className="text-Neutral-1 flex gap-2 items-center justify-between px-2 py-[10px] rounded z-[5] border border-Neutral-10">
+                          {selectedWithdrawAssets.name}
+                          <span className="material-symbols-outlined">
+                            expand_more
+                          </span>
+                        </Listbox.Button>
+                        <Listbox.Options className="w-full rounded bg-Primary-bg text-white p-3">
+                          {withdrawAssets.map((asset) => (
+                            <Listbox.Option
+                              key={asset.id}
+                              value={asset}
+                              as={Fragment}
+                            >
+                              <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                                {asset.name}
+                              </li>
+                            </Listbox.Option>
+                          ))}
+                        </Listbox.Options>
+                      </Listbox>
+                    </div>
+                    {/* <div className="form-control w-full">
                       <label className="label">
                         <span className="text-base text-Neutral-6 font-semibold">
                           Withdraw Assets
@@ -277,7 +356,7 @@ const Settings = () => {
                         <option>2500</option>
                         <option>3000</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="form-control mb-2 lg:mb-6">
                     <label className="label">
@@ -298,27 +377,42 @@ const Settings = () => {
                       <div className="flex gap-2 mb-2">
                         <input
                           type="checkbox"
-                          className="checkbox border-Neutral-10"
+                          id="check"
+                          name="check"
+                          className="checkbox border-Neutral-10 checkbox-success"
                         />
-                        <label className="text-Neutral-5 text-sm leading-[21px]">
+                        <label
+                          htmlFor="check"
+                          className="text-Neutral-5 text-sm leading-[21px] cursor-pointer"
+                        >
                           Promotions
                         </label>
                       </div>
                       <div className="flex gap-2 mb-2">
                         <input
                           type="checkbox"
-                          className="checkbox border-Neutral-10"
+                          className="checkbox border-Neutral-10 checkbox-success"
+                          id="check2"
+                          name="check2"
                         />
-                        <label className="text-Neutral-5 text-sm leading-[21px]">
+                        <label
+                          htmlFor="check2"
+                          className="text-Neutral-5 text-sm leading-[21px] cursor-pointer"
+                        >
                           Exchange
                         </label>
                       </div>
                       <div className="flex gap-2">
                         <input
                           type="checkbox"
-                          className="checkbox border-Neutral-10"
+                          id="check1"
+                          name="check1"
+                          className="checkbox border-Neutral-10 checkbox-success"
                         />
-                        <label className="text-Neutral-5 text-sm leading-[21px]">
+                        <label
+                          htmlFor="check1"
+                          className="text-Neutral-5 text-sm leading-[21px] cursor-pointer"
+                        >
                           Withdrawls
                         </label>
                       </div>
@@ -372,15 +466,15 @@ const Settings = () => {
                     </label>
                     <div className="relative">
                       <input
-                        type={show ? "text" : "password"}
+                        type={show1 ? "text" : "password"}
                         placeholder="New Password........."
                         className="px-2 py-[10px] rounded w-full bg-Primary-3 text-Neutral-6 border border-Neutral-10 outline-none"
                       />
                       <label
-                        onClick={handleShow}
+                        onClick={handleShow1}
                         className="text-Neutral-1  absolute right-[3%] top-3 cursor-pointer"
                       >
-                        {show ? (
+                        {show1 ? (
                           <span className="material-symbols-outlined">
                             visibility_off
                           </span>
@@ -402,15 +496,15 @@ const Settings = () => {
                     </label>
                     <div className="relative">
                       <input
-                        type={show ? "text" : "password"}
+                        type={show2 ? "text" : "password"}
                         placeholder="Confirm Password......."
                         className="px-2 py-[10px] rounded w-full bg-Primary-3 text-Neutral-6 border border-Neutral-10 outline-none"
                       />
                       <label
-                        onClick={handleShow}
+                        onClick={handleShow2}
                         className="text-Neutral-1  absolute right-[3%] top-3 cursor-pointer"
                       >
-                        {show ? (
+                        {show2 ? (
                           <span className="material-symbols-outlined">
                             visibility_off
                           </span>
@@ -430,7 +524,7 @@ const Settings = () => {
                 </div>
               </Tab.Panel>
               <Tab.Panel>
-                <div className="flex items-center gap-6">
+                <div className="flex flex-wrap items-center gap-6">
                   <div className="">
                     <Image src={code} alt="code" className="object-cover" />
                     <h5 className="text-white text-lg font-bold leading-[27px] mt-3 text-center">
@@ -446,38 +540,23 @@ const Settings = () => {
                       code that you can enter below
                     </span>
                     <form className="my-7">
-                      <div className="flex gap-3 ">
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                        <input
-                          type="text"
-                          placeholder="0"
-                          className="w-8 h-9 text-center rounded-sm bg-[transparent] border border-Neutral-7 text-Neutral-8 font-bold"
-                        />
-                      </div>
+                      <OtpInput
+                        inputStyle={{
+                          borderRadius: "5px",
+                          width: "40px",
+                          height: "30px",
+                          color: "#3EBF81",
+                          outlineColor: "#3EBF81",
+                          backgroundColor: "transparent",
+                          border: "1px solid #424A55",
+                        }}
+                        inputType="number"
+                        value={otp}
+                        onChange={setOtp}
+                        numInputs={6}
+                        renderSeparator={<span>-</span>}
+                        renderInput={(props) => <input {...props} />}
+                      />
                       <span className="text-xs text-Neutral-6 leading-[18px] mt-2">
                         Enter six- digit code
                       </span>
@@ -559,7 +638,6 @@ const Settings = () => {
           </Tab.Group>
         </div>
       </section>
-      {/* <hr className="mt-6 border-Neutral-10" /> */}
     </div>
   );
 };

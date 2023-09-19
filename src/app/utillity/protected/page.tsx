@@ -30,7 +30,7 @@ const Protected = () => {
           </div>
         </div>
         <div className="text-center mt-3 md:mt-8">
-          <button className="text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-4 py-2 ">
+          <button className="w-28 text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-4 py-2 ">
             Submit
           </button>
         </div>

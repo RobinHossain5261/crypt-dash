@@ -10,7 +10,7 @@ const SignUp = () => {
     <div className="min-h-screen bg-Primary-bg flex items-center justify-center">
       <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl block md:flex items-center gap-6">
         <div className="bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg p-2 lg:px-7 lg:py-6">
-          <Link href="/dashboard" className="flex gap-2 items-center mb-8">
+          <Link href="/" className="flex gap-2 items-center mb-8">
             <Image src={logo} alt="logo" className="w-10 h-10" />
             <h3 className="text-2xl font-bold text-white">
               Crypt<span className="text-Primary-bg">Dash</span>
@@ -83,13 +83,21 @@ const SignUp = () => {
               />
             </div>
             <div className="flex gap-2 mb-2 mt-3">
-              <input type="checkbox" className="checkbox border-Neutral-10" />
-              <label className="text-Neutral-5 text-sm leading-[21px]">
+              <input
+                type="checkbox"
+                id="sign"
+                name="sign"
+                className="checkbox border-Neutral-10 checkbox-success"
+              />
+              <label
+                htmlFor="sign"
+                className="text-Neutral-5 text-sm leading-[21px] cursor-pointer"
+              >
                 Remember me
               </label>
             </div>
             <div className="text-center mt-8 ">
-              <button className="px-4 py-2 text-[#F8FAFC] text-xs leading-[18px] border border-Neutral-8 rounded-lg hover:bg-Neutral-8">
+              <button className="w-28 px-4 py-2 text-[#F8FAFC] text-xs leading-[18px] border border-Neutral-8 rounded-lg hover:bg-Neutral-8">
                 Sign Up
               </button>
             </div>

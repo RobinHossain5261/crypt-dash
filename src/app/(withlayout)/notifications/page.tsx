@@ -2,6 +2,7 @@ import React from "react";
 import "material-symbols";
 import { notifications } from "../../../../public/data/notificationsData";
 import Image from "next/image";
+import Link from "next/link";
 
 const Notifications = () => {
   return (
@@ -25,7 +26,7 @@ const Notifications = () => {
                 key={item.id}
                 className="flex flex-wrap items-center justify-between border-Neutral-10 border-t"
               >
-                <div className="flex flex-wrap items-center gap-3 my-5  xl:w-[70%]">
+                <div className="flex items-center gap-3 my-5  xl:w-[70%]">
                   <Image
                     src={item.img}
                     alt="buyer"
@@ -50,9 +51,28 @@ const Notifications = () => {
                   <span className="text-Neutral-6 text-xs leading-[18px]">
                     {item.time}
                   </span>
-                  <span className="material-symbols-outlined text-white cursor-pointer">
-                    more_vert
-                  </span>
+
+                  <div className="dropdown dropdown-top">
+                    <label tabIndex={0}>
+                      <span className="material-symbols-outlined text-white cursor-pointer">
+                        more_vert
+                      </span>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content z-[1] p-4 shadow bg-Neutral-2 text-white rounded-box w-40 cursor-pointer"
+                    >
+                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                        <Link href="#">Delete</Link>
+                      </li>
+                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                        <Link href="#">Edit</Link>
+                      </li>
+                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                        <Link href="#">Suspend</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             ))}

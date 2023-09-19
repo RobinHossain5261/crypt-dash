@@ -1,4 +1,4 @@
-import DashBoard from "./(withlayout)/dashboard/page";
+import DashBoard from "./dashboard/page";
 
 export default function Home() {
   return (

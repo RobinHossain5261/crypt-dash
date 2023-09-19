@@ -1,18 +1,25 @@
 "use client";
-import React, { Fragment } from "react";
-import { Tab } from "@headlessui/react";
+import React, { Fragment, useState } from "react";
+import { Listbox, Tab } from "@headlessui/react";
 import { history } from "../../../../public/data/activitiesData";
 import Image from "next/image";
 
+const times = [
+  { id: 1, name: "All Times", unavailable: false },
+  { id: 2, name: "This Month", unavailable: false },
+  { id: 3, name: "This Week", unavailable: false },
+];
+
 const Activities = () => {
+  const [selectedTime, setSelectedTime] = useState(times[0]);
   return (
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
       <section className="grid grid-cols-12">
         <div className="bg-Primary-3 px-7 py-6 rounded-xl col-span-12 lg:col-span-11">
           <Tab.Group>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-wrap gap-3 justify-between items-center">
               <h5 className="text-xl text-Neutral-6 font-semibold">History</h5>
-              <div className="flex gap-3 items-center">
+              <div className="flex flex-wrap  gap-3 items-center">
                 <Tab.List className="flex gap-3">
                   <Tab as={Fragment}>
                     {({ selected }) => (
@@ -54,11 +61,30 @@ const Activities = () => {
                     )}
                   </Tab>
                 </Tab.List>
-                <select className="bg-Primary-3 text-Neutral-5 text-base border border-Neutral-10 px-4 py-2 rounded-lg outline-none">
-                  <option>All Times</option>
-                  <option>This Month</option>
-                  <option>This Week</option>
-                </select>
+
+                <div className="relative">
+                  <Listbox value={selectedTime} onChange={setSelectedTime}>
+                    <Listbox.Button className="text-Neutral-5 text-base flex gap-2 items-center justify-between pl-4 pr-2 py-1 rounded z-[5] border border-Neutral-7">
+                      {selectedTime.name}
+                      <span className="material-symbols-outlined dark:text-myGreen">
+                        expand_more
+                      </span>
+                    </Listbox.Button>
+                    <Listbox.Options className="rounded w-36 bg-Primary-bg text-white p-3 absolute top-full z-[5]">
+                      {times.map((time) => (
+                        <Listbox.Option
+                          key={time.id}
+                          value={time}
+                          as={Fragment}
+                        >
+                          <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                            {time.name}
+                          </li>
+                        </Listbox.Option>
+                      ))}
+                    </Listbox.Options>
+                  </Listbox>
+                </div>
               </div>
             </div>
             <hr className="my-6 border-Neutral-10" />

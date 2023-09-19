@@ -1,24 +1,18 @@
 "use client";
-
-import { Listbox } from "@headlessui/react";
-import {
-  forwardRef,
-  useState,
-  Dispatch,
-  SetStateAction,
-  Fragment,
-} from "react";
+import React, { Fragment, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import AnimateHeight from "react-animate-height";
 import logo from "@/../public/images/logo.png";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import dashIcon from "@/../public/images/dasboard.png";
-import dashboardIcon from "@/../public/images/dashboardIcon.png";
+import { sidenavData } from "../../../public/data/sidenavData";
+import { Listbox } from "@headlessui/react";
 
-type propsType = {
-  showNav: boolean;
-  setShowNav: Dispatch<SetStateAction<boolean>>;
+type navProps = {
+  navOpen: boolean;
+  setOpened: (open: any) => void;
+  setNavOpen: (open: any) => void;
+  opened: number | null;
 };
 
 const languages = [
@@ -27,264 +21,102 @@ const languages = [
   { id: 3, name: "Arbic (SA)", unavailable: false },
 ];
 
-const Sidebar = forwardRef(({ showNav, setShowNav }: propsType, ref: any) => {
-  const currentRoute = usePathname();
+const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
   const [selectedPerson, setSelectedPerson] = useState(languages[0]);
-
-  const [activeMenu, setActiveMenu] = useState(0);
-
-  const [height] = useState(0);
-  const [height1] = useState(0);
-
+  const path = usePathname();
   return (
     <nav
-      ref={ref}
-      className="fixed top-0 bottom-0 z-[6] w-full md:w-[280px] lg:w-[280px] h-full bg-Primary-3 shadow-sm overflow-y-auto"
+      className={`${
+        navOpen ? "ml-0" : "ml-[-260px]"
+      } lg:ml-0 w-[260px] transiton-all duration-300 ease-out z-20 overflow-x-hidden overflow-y-auto fixed top-0 bottom-0 bg-[#212B39] flex flex-col p-3 md:p-5 xl:px-6 xl:py-8 min-h-screen shadow-lg lg:shadow-none scrollbarthin bg-neutral1white  text-white`}
     >
-      <div className="flex items-center justify-between">
-        <Link
-          href="/dashboard"
-          className="flex items-center gap-2 ml-6 mt-10 mb-10 cursor-pointer"
-        >
-          <Image className="w-10 h-[42px]" src={logo} alt="company logo" />
-          <h1 className="text-white text-2xl font-bold">
-            Crypt<span className="text-Primary-2">Dash</span>
-          </h1>
-        </Link>
-
-        <div className="lg:hidden md:hidden">
-          <span
-            className=" material-symbols-outlined cursor-pointer text-white  mb-4 mr-4"
-            onClick={() => setShowNav(!showNav)}
-          >
-            close
-          </span>
-        </div>
-      </div>
-      <ul className="mx-6 z-[3]">
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/dashboard"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/dashboard" ? "activePath" : ""
+      <Link href="/" className="flex items-center gap-2 mb-10 cursor-pointer">
+        <Image className="w-10 h-[42px]" src={logo} alt="company logo" />
+        <h1 className="text-white text-2xl font-bold">
+          Crypt<span className="text-Primary-2">Dash</span>
+        </h1>
+      </Link>
+      <ul>
+        {sidenavData?.map((item) => (
+          <li
+            key={item.id}
+            className={`hover:text-Neutral-8 text-Neutral-6 text-base font-semibold border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg mb-4 cursor-pointer ${
+              path == item.url && "text-Neutral-8 border-Neutral-8"
             }`}
           >
-            {currentRoute === "/dashboard" ? (
-              <Image src={dashIcon} alt="Dashboard" width={20} height={20} />
+            {item.url ? (
+              <Link
+                href={item.url}
+                onClick={() => setNavOpen(false)}
+                className={`flex gap-2 `}
+              >
+                <span className="material-symbols-outlined">{item.icon}</span>
+                <span>{item.name}</span>
+              </Link>
             ) : (
-              <Image
-                src={dashboardIcon}
-                alt="DashboardIcon"
-                width={20}
-                height={20}
-              />
+              <span
+                onClick={() =>
+                  setOpened((prev: any) => (prev == item.id ? null : item.id))
+                }
+                className={`flex gap-2 items-center justify-between ${
+                  item.id == opened && " border-[#3EBF81] hover:text-[#D2D9E4]"
+                }`}
+              >
+                <span className="flex gap-2">
+                  <span className="material-symbols-outlined">{item.icon}</span>
+                  <span>{item.name}</span>
+                </span>
+                {item.submenus && (
+                  <span className="material-symbols-outlined">expand_more</span>
+                )}
+              </span>
             )}
-
-            <span className="text-base font-semibold">Dashbord</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/exchange"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/exchange" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">sync</span>
-            <span className="text-base font-semibold">Exchange</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/prices"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/prices" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">payments</span>
-            <span className="text-base font-semibold">Prices</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/wallets"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/wallets" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">
-              account_balance_wallet
-            </span>
-            <span className="text-base font-semibold">Wallets</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/promotions"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/promotions" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">percent</span>
-            <span className="text-base font-semibold">Promotions</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/activities"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/activities" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">insights</span>
-            <span className="text-base font-semibold">Activities</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/notifications"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/notifications" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">notifications</span>
-            <span className="text-base font-semibold">Notifications</span>
-          </Link>
-        </li>
-        <li className="mb-4 cursor-pointer">
-          <Link
-            href="/settings"
-            onClick={() => (innerWidth <= 768 ? setShowNav(!showNav) : "")}
-            className={`text-Neutral-6 flex gap-2 items-center hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg ${
-              currentRoute === "/settings" ? "activePath" : ""
-            }`}
-          >
-            <span className="material-symbols-outlined">settings</span>
-            <span className="text-base font-semibold">Settings</span>
-          </Link>
-        </li>
-
-        <li className="mb-5 cursor-pointer">
-          <div
-            className="text-Neutral-6 flex gap-2 items-center justify-between hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg"
-            aria-expanded={height !== 0}
-            aria-controls="example-panel"
-            onClick={() => setActiveMenu((prev) => (prev == 1 ? 0 : 1))}
-          >
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined w-[15px] h-[15px] mr-3 mb-2">
-                construction
-              </span>
-              <span className="text-base font-semibold">Utilities</span>
-            </div>
-            <span className="material-symbols-outlined w-5 h-5">
-              expand_more
-            </span>
-          </div>
-          <AnimateHeight
-            id="example-panel"
-            duration={500}
-            height={activeMenu == 1 ? "auto" : 0}
-          >
-            <ul>
-              <li className="my-2 cursor-pointer">
-                <Link
-                  href="/utillity/protected"
-                  className={`text-Neutral-6 flex hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 ml-4 rounded-lg ${
-                    currentRoute === "/utillity/protected" ? "activePath" : ""
-                  }`}
-                >
-                  <span className="text-base font-semibold">
-                    Protected Page
-                  </span>
-                </Link>
-              </li>
-              <li className="my-2 cursor-pointer">
-                <Link
-                  href="/utillity/error"
-                  className={`text-Neutral-6 flex hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 ml-4 rounded-lg ${
-                    currentRoute === "/utillity/error" ? "activePath" : ""
-                  }`}
-                >
-                  <span className="text-base font-semibold">Error Page</span>
-                </Link>
-              </li>
-            </ul>
-          </AnimateHeight>
-        </li>
-        <li className="mb-5 cursor-pointer">
-          <div
-            className="text-Neutral-6 flex gap-2 items-center justify-between hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg"
-            aria-expanded={height1 !== 0}
-            aria-controls="example-panel"
-            onClick={() => setActiveMenu((prev) => (prev == 7 ? 0 : 7))}
-          >
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined w-[15px] h-[15px] mr-3 mb-2">
-                work
-              </span>
-              <span className="text-base font-semibold">Authentication</span>
-            </div>
-            <span className="material-symbols-outlined w-5 h-5">
-              expand_more
-            </span>
-          </div>
-          <AnimateHeight
-            id="example-panel"
-            duration={500}
-            height={activeMenu == 7 ? "auto" : 0}
-          >
-            <ul>
-              <li className="my-2 cursor-pointer">
-                <Link
-                  href="/utillity/sign_in"
-                  className={`text-Neutral-6 flex hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 ml-4 rounded-lg ${
-                    currentRoute === "/utillity/sign_in" ? "activePath" : ""
-                  }`}
-                >
-                  <span className="text-base font-semibold">Sign In</span>
-                </Link>
-              </li>
-              <li className="my-2 cursor-pointer">
-                <Link
-                  href="/utillity/sign_up"
-                  className={`text-Neutral-6 flex hover:text-Neutral-8 border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 ml-4 rounded-lg ${
-                    currentRoute === "/utillity/sign_up" ? "activePath" : ""
-                  }`}
-                >
-                  <span className="text-base font-semibold">Sign Up</span>
-                </Link>
-              </li>
-            </ul>
-          </AnimateHeight>
-        </li>
+            {item.submenus && (
+              <AnimateHeight
+                duration={300}
+                height={opened == item.id ? "auto" : 0}
+              >
+                <ul className={`px-3 mt-1 flex flex-col gap-1`}>
+                  {item.submenus.map((item) => (
+                    <li key={item.title}>
+                      <Link
+                        href={item.url}
+                        onClick={() => setNavOpen(false)}
+                        className={`flex gap-2 items-center pl-4 pr-1 py-2 text-[#D2D9E4] hover:bg-[#3EBF81] duration-300 rounded-lg ${
+                          item.url == path && "text-[#3EBF81]"
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </AnimateHeight>
+            )}
+          </li>
+        ))}
       </ul>
-      <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-        <Listbox.Button className="text-white bg-gradient-to-r from-[#33AB71] to-[#06753F] flex gap-2 items-center justify-between pl-4 pr-2 py-3 ml-6 mt-5 rounded z-[5]">
-          {selectedPerson.name}
-          <span className="material-symbols-outlined dark:text-myGreen">
-            expand_more
-          </span>
-        </Listbox.Button>
-        <Listbox.Options className="mx-6  w-36 rounded bg-Primary-bg text-white p-3 ">
-          {languages.map((language) => (
-            <Listbox.Option key={language.id} value={language} as={Fragment}>
-              <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
-                {language.name}
-              </li>
-            </Listbox.Option>
-          ))}
-        </Listbox.Options>
-      </Listbox>
+      <div className="relative">
+        <Listbox value={selectedPerson} onChange={setSelectedPerson}>
+          <Listbox.Button className="text-white bg-gradient-to-r from-[#33AB71] to-[#06753F] flex gap-2 items-center justify-between pl-4 pr-2 py-2 ml-6 mt-3 rounded z-[5]">
+            {selectedPerson.name}
+            <span className="material-symbols-outlined dark:text-myGreen">
+              expand_more
+            </span>
+          </Listbox.Button>
+          <Listbox.Options className="mx-6 w-36 rounded-lg bg-Primary-bg text-white p-3 absolute bottom-full">
+            {languages.map((language) => (
+              <Listbox.Option key={language.id} value={language} as={Fragment}>
+                <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                  {language.name}
+                </li>
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Listbox>
+      </div>
     </nav>
   );
-});
+};
 
 export default Sidebar;

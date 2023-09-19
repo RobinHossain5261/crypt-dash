@@ -5,6 +5,7 @@ import Image from "next/image";
 import "material-symbols";
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
+import dogicoin from "@/../public/images/dogecoin.png";
 
 import {
   curencys,
@@ -21,7 +22,7 @@ const Exchange = () => {
   const [selectedAmount, setSelectedAmount] = useState(curencysAmount[0]);
   return (
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
-      <section className="bg-Primary-3 px-7 py-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xxl:grid-cols-6 rounded-xl">
+      <section className="bg-Primary-3 px-7 py-5 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-6 rounded-xl">
         <div>
           <Listbox value={selectedCurencys} onChange={setSelectedCurencys}>
             <Listbox.Button className="flex gap-2 items-center  relative w-full rounded-lg text-Neutral-6  py-2 px-3 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm lg:border-r border-Neutral-10 cursor-pointer">
@@ -164,7 +165,7 @@ const Exchange = () => {
           </Tab.Group>
         </div>
         {/* Doughunt chart  */}
-        <div className="bg-Primary-3 col-span-12 lg:col-span-4 rounded-xl p-2 md:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 lg:col-span-4 rounded-xl p-4 md:px-7 md:py-6">
           <DoughnutChart />
           <div className="text-center mt-2 lg:mt-5">
             <h4 className="text-xl xxl:text-2xl text-Neutral-6 leading-[36px]">
@@ -322,7 +323,7 @@ const Exchange = () => {
           </div>
         </div>
 
-        <div className="bg-Primary-3 p-3 lg:p-7 rounded-xl col-span-12 lg:col-span-4">
+        <div className="bg-Primary-3 p-3 lg:p-5 xl-7 rounded-xl col-span-12 lg:col-span-4">
           <Tab.Group>
             <Tab.List className="flex flex-wrap gap-5">
               <Tab as={Fragment}>
@@ -330,8 +331,8 @@ const Exchange = () => {
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
                     }
                   >
                     Buy
@@ -343,8 +344,8 @@ const Exchange = () => {
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
                     }
                   >
                     Sell
@@ -356,8 +357,8 @@ const Exchange = () => {
                   <button
                     className={
                       selected
-                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
-                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[100px]"
+                        ? "text-Neutral-6 bg-gradient-to-r from-[#33AB71] to-[#06753F] text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
+                        : "text-Neutral-6 text-base leading-[18px] px-4 py-2 rounded outline-none border border-Neutral-7 w-[120px]"
                     }
                   >
                     Exchange
@@ -441,11 +442,11 @@ const Exchange = () => {
                         </span>
                       </span>
                     </Listbox.Button>
-                    <Listbox.Options className="w-[250px] bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer">
+                    <Listbox.Options className="w-52 bg-Primary-bg text-Neutral-6 p-5 absolute mt-1 max-h-60 overflow-auto rounded-md  py-2 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm cursor-pointer">
                       {curencysAmount.map((amount) => (
                         <Listbox.Option key={amount.id} value={amount}>
-                          <li>
-                            <span className="block text-Neutral-5 text-base leading-[18px] mt-2">
+                          <li className="hover:bg-Neutral-8 py-1 pl-2 rounded">
+                            <span className="block text-Neutral-5 text-base leading-[18px] mt-2 ">
                               {amount.money}
                             </span>
                           </li>
@@ -462,9 +463,10 @@ const Exchange = () => {
                     </span>
                   </div>
                 </div>
-                <div className="text-center mt-8">
-                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px]">
-                    Buy Bitcoin
+                <div className="flex justify-center mt-8">
+                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px] flex items-center gap-2">
+                    <Image src={dogicoin} alt="dogicoin" className="w-3 h-3" />
+                    <span>Buy Dogecoin</span>
                   </button>
                 </div>
               </Tab.Panel>
@@ -564,9 +566,10 @@ const Exchange = () => {
                     </span>
                   </div>
                 </div>
-                <div className="text-center mt-8">
-                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px]">
-                    Buy Bitcoin
+                <div className="flex justify-center mt-8">
+                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px] flex items-center gap-2">
+                    <Image src={dogicoin} alt="dogicoin" className="w-3 h-3" />
+                    <span>Buy Dogecoin</span>
                   </button>
                 </div>
               </Tab.Panel>
@@ -666,9 +669,10 @@ const Exchange = () => {
                     </span>
                   </div>
                 </div>
-                <div className="text-center mt-8">
-                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px]">
-                    Buy Bitcoin
+                <div className="flex justify-center mt-8">
+                  <button className="text-[#F8FAFC] text-base px-4 py-2 bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg leading-[18px] flex items-center gap-2">
+                    <Image src={dogicoin} alt="dogicoin" className="w-3 h-3" />
+                    <span>Buy Dogecoin</span>
                   </button>
                 </div>
               </Tab.Panel>

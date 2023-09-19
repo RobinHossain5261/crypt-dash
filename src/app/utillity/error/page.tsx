@@ -19,7 +19,7 @@ const Error = () => {
         <div className="text-center">
           <button className="bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-2 py-1 mt-8">
             <Link
-              href="/dashboard"
+              href="/"
               className="flex items-center gap-2 text-[#F8FAFC] text-xs "
             >
               <span>Go Back To Home Page</span>

@@ -24,7 +24,7 @@ border-bottom: 30px solid #242F40;
 position: absolute;
 border-left: 15px solid transparent;
 border-right: 15px solid transparent;
-right:42%;
+right:25%;
 top: -20px;
 }
 
@@ -36,8 +36,26 @@ border-bottom: 30px solid #242F40;
 position: absolute;
 border-left: 15px solid transparent;
 border-right: 15px solid transparent;
-right:15%;
+right:11%;
 top: -20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .identify::before{
+    content:'';
+    width:30px;
+    height:25px;
+    border-bottom: 30px solid #242F40;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    right:45%;
+    top: -20px;
+    }
+}
+
+.select-option{
+  margin-bottom: 10ox;
 }
 
 
@@ -63,10 +81,6 @@ top: -20px;
     font-size: 16px !important;
 }
 
-.topbarIcon{
-  font-size: 40px;
-}
-
 /* border gradient  */
 .border-gradient{
   background: linear-gradient(#2E3549,#2E3549)padding-box,linear-gradient(to top left,#FE53BB,#09FBD3) border-box;
@@ -78,6 +92,18 @@ top: -20px;
 /* animation progressbar */
 .progressorRun{
   animation: progressor 2s ease-in-out forwards;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @keyframes progressor{

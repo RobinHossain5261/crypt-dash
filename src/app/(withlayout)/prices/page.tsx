@@ -3,8 +3,17 @@ import Image from "next/image";
 import { smallCharts } from "../../../../public/data/dashBoardData";
 import { prices } from "../../../../public/data/pricesData";
 import "material-symbols";
+import { Listbox } from "@headlessui/react";
+import { Fragment, useState } from "react";
+
+const times = [
+  { id: 1, name: "All Times", unavailable: false },
+  { id: 2, name: "This Month", unavailable: false },
+  { id: 3, name: "This Week", unavailable: false },
+];
 
 const Prices = () => {
+  const [selectedTime, setSelectedTime] = useState(times[0]);
   // table star button color toggle
   const handleActiveColor = (event: any) => {
     event.currentTarget.classList.toggle("text-Primary-2");
@@ -48,11 +57,25 @@ const Prices = () => {
                 search
               </span>
             </form>
-            <select className="select select-bordered bg-Primary-3 text-Neutral-5 text-base border border-Neutral-10">
-              <option>All Times</option>
-              <option>This Month</option>
-              <option>This Week</option>
-            </select>
+            <div className="relative">
+              <Listbox value={selectedTime} onChange={setSelectedTime}>
+                <Listbox.Button className="text-Neutral-5 text-base flex gap-2 items-center justify-between pl-4 pr-2 py-2 rounded z-[5] border border-Neutral-10">
+                  {selectedTime.name}
+                  <span className="material-symbols-outlined dark:text-myGreen">
+                    expand_more
+                  </span>
+                </Listbox.Button>
+                <Listbox.Options className="rounded w-36 bg-Primary-bg text-white p-3 absolute top-full z-[5]">
+                  {times.map((time) => (
+                    <Listbox.Option key={time.id} value={time} as={Fragment}>
+                      <li className="cursor-pointer p-1 hover:bg-Neutral-8 rounded">
+                        {time.name}
+                      </li>
+                    </Listbox.Option>
+                  ))}
+                </Listbox.Options>
+              </Listbox>
+            </div>
           </div>
         </div>
         <hr className="my-7 border-Neutral-10" />

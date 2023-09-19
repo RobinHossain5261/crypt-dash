@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { Dispatch, SetStateAction, Fragment } from "react";
+import React, { Fragment } from "react";
 import user from "@/../public/images/user.png";
 import {
   messages,
@@ -9,24 +9,19 @@ import {
 } from "../../../public/data/TopbarData";
 import { Menu, Transition } from "@headlessui/react";
 
-type propsType = {
-  showNav: boolean;
-  setShowNav: Dispatch<SetStateAction<boolean>>;
+type headerProps = {
+  handleOpen: (e: any) => void;
 };
 
-const TopBar = ({ showNav, setShowNav }: propsType) => {
+const TopBar = ({ handleOpen }: headerProps) => {
   return (
-    <div
-      className={`bg-Primary-3 left-0 py-5  z-[5] fixed w-full flex justify-between items-center transition-all duration-[400ms] ${
-        showNav ? "lg:pl-[280px] md:pl-[280px] pl-[100%]" : ""
-      }`}
-    >
+    <div className="py-2 flex gap-2 items-center justify-between self-start z-[5] left-0 lg:ml-[260px] right-0 fixed bg-Neutral-2">
       <div className="flex items-center gap-2 py-2">
         <button
-          onClick={() => setShowNav(!showNav)}
-          className="md:hidden  text-white bg-Primary-bg flex items-center ml-4 p-1 rounded"
+          onClick={handleOpen}
+          className="lg:hidden  text-white bg-Primary-bg flex items-center ml-4 p-1 rounded"
         >
-          <span className="material-symbols-outlined  cursor-pointer !text-[40px]">
+          <span className="material-symbols-outlined  cursor-pointer !text-3xl">
             menu
           </span>
         </button>
@@ -34,7 +29,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
           <input
             type="text"
             placeholder="Search..."
-            className="outline-none text-Neutral-5 bg-Primary-3"
+            className="outline-none text-Neutral-5 bg-Neutral-2"
           />
           <span className="material-symbols-outlined cursor-pointer text-Neutral-6">
             search
@@ -46,7 +41,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
         {/* message dropdriwn menu  */}
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-Primary-bg p-1 px-3 py-2 text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative cursor-pointer">
-            <span className="material-symbols-outlined  text-white !text-3xl md:!text-[40px] mt-1">
+            <span className="material-symbols-outlined  text-white !text-3xl md:!text-[35px]">
               message
             </span>
             <span className="absolute h-3 w-3 rounded-full bg-Primary-2 flex justify-center items-center bottom-[11px] left-[10px] border border-white"></span>
@@ -64,7 +59,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
             <Menu.Items className="absolute -right-28 mt-4 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none identify">
               <div className="px-1 py-1 ">
                 <Menu.Item>
-                  <div className="w-64 lg:w-80 bg-Neutral-10 p-3 rounded-xl">
+                  <div className="w-64 md:w-[500px] bg-Neutral-10 p-3 rounded-xl">
                     <h3 className="text-2xl text-white font-bold text-center">
                       Message
                     </h3>
@@ -101,7 +96,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
         {/* notification dropdown menu  */}
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-Primary-bg  px-3 py-2 text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative cursor-pointer">
-            <span className="material-symbols-outlined  text-white !text-3xl !text-[40px] mt-1">
+            <span className="material-symbols-outlined  text-white !text-3xl md:!text-[35px]">
               notifications
             </span>
             <span className="absolute h-3 w-3 rounded-full bg-Primary-2 flex justify-center items-center bottom-[11px] left-4 border border-white"></span>
@@ -119,7 +114,7 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
             <Menu.Items className="absolute -right-8 mt-4 origin-top-right divide-y divide-gray-100 rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none identify-notificition">
               <div className="px-1 py-1 ">
                 <Menu.Item>
-                  <div className="w-64 lg:w-80 bg-Neutral-10 p-3 rounded-xl">
+                  <div className="w-64 md:w-[500px] bg-Neutral-10 p-3 rounded-xl">
                     <h3 className="text-2xl text-white font-bold text-center">
                       Notifications
                     </h3>
@@ -155,9 +150,10 @@ const TopBar = ({ showNav, setShowNav }: propsType) => {
         </Menu>
 
         {/* Profile dropdown menu */}
+
         <Menu
           as="div"
-          className="relative inline-block text-left pr-3 md:pr-6 lg:pr-10"
+          className="relative inline-block text-left pr-3 md:pr-6 lg:pr-10 mt-1"
         >
           <Menu.Button>
             <div className="flex items-center cursor-pointer">

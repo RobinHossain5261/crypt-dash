@@ -46,7 +46,7 @@ const Promotions = () => {
             </Tab.List>
           </div>
           <Tab.Panels>
-            <Tab.Panel className="grid gap-6 grid-cols-1 md:grid-cols-2  xl:grid-cols-3 xxl:grid-cols-4">
+            <Tab.Panel className="grid gap-6 grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 xxl:grid-cols-4">
               {promotions.map((item) => (
                 <div
                   key={item.id}
@@ -56,7 +56,7 @@ const Promotions = () => {
                     <Image
                       src={item.image}
                       alt="promotions"
-                      className="w-full h-full object-cover "
+                      className="w-full h-[250px] object-cover "
                     />
                     <span className="bg-Neutral-8 text-Primary-3 text-xs leading-[18px] px-2 py-1 rounded-lg absolute top-4 left-4">
                       {item.date}
@@ -76,13 +76,13 @@ const Promotions = () => {
                 </div>
               ))}
             </Tab.Panel>
-            <Tab.Panel className="grid gap-6 grid-cols-1 xl:grid-cols-2 xxl:grid-cols-3">
+            <Tab.Panel className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3">
               {promotions.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-Primary-3 rounded-xl overflow-hidden border-gradient block lg:flex items-center"
+                  className="bg-Primary-3 rounded-xl overflow-hidden border-gradient block md:flex items-center"
                 >
-                  <div className="relative shrink-0 w-full  md:w-[241px] xl:h-full">
+                  <div className="relative shrink-0 w-full md:w-[241px] xl:h-full">
                     <Image
                       width={241}
                       height={220}
@@ -94,7 +94,7 @@ const Promotions = () => {
                       {item.date}
                     </span>
                   </div>
-                  <div className="px-6 pb-5">
+                  <div className="ml-3">
                     <h4 className="text-white text-lg font-bold leading-[27px] mt-[15px] mb-5">
                       {item.title}
                     </h4>

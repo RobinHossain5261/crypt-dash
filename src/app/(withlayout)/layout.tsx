@@ -1,65 +1,43 @@
 "use client";
-import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
-import { Transition } from "@headlessui/react";
-import TopBar from "@/components/TopBar/TopBar";
-import "material-symbols";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import TopBar from "@/components/TopBar/TopBar";
+import React, { MouseEvent, useState } from "react";
+import "material-symbols";
 import Footer from "@/components/Footer/Footer";
-// import Footer from "@/components/Footer/Footer";
 
-interface Props {
-  children: ReactNode | ReactNode[];
-}
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [navOpen, setNavOpen] = useState(false);
+  const [opened, setOpened] = useState<null | number>(null);
 
-export default function RootLayout({ children }: Props) {
-  const [showNav, setShowNav] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  function handleResize() {
-    if (innerWidth <= 768) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }
-
-  useEffect(() => {
-    if (typeof window != undefined) {
-      addEventListener("resize", handleResize);
-    }
-    if (innerWidth > 768) {
-      setShowNav(true);
-    }
-    if (innerWidth < 768) {
-      setShowNav(false);
-    }
-    return () => {
-      removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setNavOpen(!navOpen);
+  };
 
   return (
     <>
-      <TopBar showNav={showNav} setShowNav={setShowNav} />
-      <Transition
-        as={Fragment}
-        show={showNav}
-        enter="transform transition duration-[400ms]"
-        enterFrom="-translate-x-full"
-        enterTo="translate-x-0"
-        leave="transform duration-[400ms] transition ease-in-out"
-        leaveFrom="translate-x-0"
-        leaveTo="-translate-x-full"
-      >
-        <Sidebar showNav={showNav} setShowNav={setShowNav} />
-      </Transition>
-      <div
-        className={`pt-16  transition-all duration-[400ms] ${
-          showNav && !isMobile ? "lg:pl-[280px] md:pl-[280px] pl-[100%]" : ""
-        }`}
-      >
-        <div className="mt-10">{children}</div>
-        <Footer />
+      <div className="bg-neutral2white dark:bg-dark2 text-dark1 dark:text-neutral4white">
+        <Sidebar
+          navOpen={navOpen}
+          opened={opened}
+          setOpened={setOpened}
+          setNavOpen={setNavOpen}
+        />
+        <div
+          className={`lg:ml-[260px] relative ${
+            navOpen &&
+            "after:bg-opacity-70 after:absolute after:inset-0 after:z-[1] after:duration-300 overflow-y-hidden"
+          }`}
+          onClick={() => setNavOpen(false)}
+        >
+          <TopBar handleOpen={handleOpen} />
+          <div className="pt-20">{children}</div>
+          <Footer />
+        </div>
       </div>
     </>
   );
