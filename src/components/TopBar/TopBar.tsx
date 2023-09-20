@@ -49,10 +49,10 @@ const TopBar = ({ handleOpen }: headerProps) => {
 
           <Transition
             as={Fragment}
-            enter="transition ease-out duration-100"
+            enter="transition ease-out duration-300"
             enterFrom="transform opacity-0 scale-95"
             enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
+            leave="transition ease-in duration-200"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
@@ -104,10 +104,10 @@ const TopBar = ({ handleOpen }: headerProps) => {
 
           <Transition
             as={Fragment}
-            enter="transition ease-out duration-100"
+            enter="transition ease-out duration-300"
             enterFrom="transform opacity-0 scale-95"
             enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
+            leave="transition ease-in duration-200"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
@@ -156,29 +156,31 @@ const TopBar = ({ handleOpen }: headerProps) => {
           className="relative inline-block text-left pr-3 md:pr-6 lg:pr-10 mt-1"
         >
           <Menu.Button>
-            <div className="flex items-center cursor-pointer">
-              <div>
-                <div className="w-12 h-12 md:w-[60px] md:h-[60px] rounded-full mr-3">
+            <span className="flex items-center cursor-pointer">
+              <span>
+                <span className="w-12 h-12 md:w-[60px] md:h-[60px] rounded-full mr-3">
                   <Image src={user} alt="User" />
-                </div>
-              </div>
-              <div className="lg:flex items-center hidden">
-                <div>
-                  <h5 className="text-base text-white font-semibold">
+                </span>
+              </span>
+              <span className="lg:flex items-center hidden">
+                <span>
+                  <span className="text-base text-white font-semibold">
                     Kim Griffith
-                  </h5>
-                  <h6 className="text-xs text-Neutral-6 text-left">Admin</h6>
-                </div>
-              </div>
-            </div>
+                  </span>
+                  <span className="text-xs text-Neutral-6 text-left">
+                    Admin
+                  </span>
+                </span>
+              </span>
+            </span>
           </Menu.Button>
 
           <Transition
             as={Fragment}
-            enter="transition ease-out duration-100"
+            enter="transition ease-out duration-300"
             enterFrom="transform opacity-0 scale-95"
             enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
+            leave="transition ease-in duration-200"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >

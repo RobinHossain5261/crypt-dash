@@ -105,6 +105,9 @@ const Prices = () => {
                 <th className="text-base font-bold text-Neutral-6 leading-[24px]">
                   Charts
                 </th>
+                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>

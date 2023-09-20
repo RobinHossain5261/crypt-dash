@@ -8,7 +8,7 @@ const Notifications = () => {
   return (
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
       <section className="grid grid-cols-12">
-        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl col-span-12 lg:col-span-11">
+        <div className="bg-Primary-3 p-4 lg:px-7 lg:py-6 rounded-xl col-span-12 xxl:col-span-11">
           <div className="flex items-center gap-2 mb-3">
             <span className="material-symbols-outlined  text-white">
               notifications
@@ -24,9 +24,9 @@ const Notifications = () => {
             {notifications.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-wrap items-center justify-between border-Neutral-10 border-t"
+                className="md:flex items-center justify-between border-Neutral-10 border-t"
               >
-                <div className="flex items-center gap-3 my-5  xl:w-[70%]">
+                <div className="flex items-center gap-3 my-5 w-full md:w-[70%]">
                   <Image
                     src={item.img}
                     alt="buyer"
@@ -52,7 +52,7 @@ const Notifications = () => {
                     {item.time}
                   </span>
 
-                  <div className="dropdown dropdown-top">
+                  <div className="dropdown dropdown-end">
                     <label tabIndex={0}>
                       <span className="material-symbols-outlined text-white cursor-pointer">
                         more_vert

@@ -237,7 +237,6 @@ const Settings = () => {
                       </label>
                       <input
                         type="date"
-                        placeholder="Date........."
                         className="w-full px-2 py-[10px] outline-none rounded bg-Primary-3 text-Neutral-1 border border-Neutral-10"
                       />
                     </div>
@@ -345,18 +344,6 @@ const Settings = () => {
                         </Listbox.Options>
                       </Listbox>
                     </div>
-                    {/* <div className="form-control w-full">
-                      <label className="label">
-                        <span className="text-base text-Neutral-6 font-semibold">
-                          Withdraw Assets
-                        </span>
-                      </label>
-                      <select className=" w-full px-2 py-[10px] outline-none rounded bg-Primary-3 text-Neutral-1 border border-Neutral-10 text-base">
-                        <option>Enabled 1,11000 USD/Day</option>
-                        <option>2500</option>
-                        <option>3000</option>
-                      </select>
-                    </div> */}
                   </div>
                   <div className="form-control mb-2 lg:mb-6">
                     <label className="label">

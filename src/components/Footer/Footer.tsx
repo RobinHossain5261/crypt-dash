@@ -11,7 +11,7 @@ const Footer = () => {
             CryptDash
           </Link>
         </p>
-        <ul className="flex flex-wrap justify-around lg:gap-8 text-lg mt-1  ">
+        <ul className="flex flex-wrap justify-around gap-4 text-lg mt-1  ">
           <li>
             <Link className="text-sm md:text-lg  text-white" href="#">
               Help Center

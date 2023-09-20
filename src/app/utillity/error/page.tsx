@@ -17,15 +17,15 @@ const Error = () => {
           ac ante ipsum primis in faucibus. Donec erat lectus.
         </p>
         <div className="text-center">
-          <button className="bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-2 py-1 mt-8">
+          <div className="w-[190px] mx-auto bg-gradient-to-r from-[#33AB71] to-[#06753F] rounded-lg px-2 py-1 mt-8">
             <Link
               href="/"
-              className="flex items-center gap-2 text-[#F8FAFC] text-xs "
+              className="flex items-center justify-center gap-2 text-[#F8FAFC] text-xs "
             >
               <span>Go Back To Home Page</span>
               <span className="material-symbols-outlined">arrow_forward</span>
             </Link>
-          </button>
+          </div>
         </div>
       </div>
     </div>

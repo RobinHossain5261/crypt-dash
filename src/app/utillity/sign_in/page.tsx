@@ -23,9 +23,9 @@ const SignIn = () => {
             Create an account to enjoy all the services without any ads for
             free!
           </p>
-          <button className="text-Primary-3 bg-[#3EBF81] text-xs leading-[18px] px-4 py-2 rounded-lg btnShadow my-8">
+          <div className="w-24 text-Primary-3 bg-[#3EBF81] text-xs leading-[18px] px-4 py-2 rounded-lg btnShadow my-8 text-center">
             <Link href="/utillity/sign_up">Sign Up</Link>
-          </button>
+          </div>
           <Image src={sign} alt="sign" />
         </div>
 

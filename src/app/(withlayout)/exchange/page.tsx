@@ -124,7 +124,7 @@ const Exchange = () => {
 
       {/* Chart part start  */}
       <section className="mt-6 gap-6 grid grid-cols-12">
-        <div className="bg-Primary-3 px-2 lg:px-7 py-6 rounded-xl col-span-12 lg:col-span-8">
+        <div className="bg-Primary-3 px-2 lg:px-7 py-6 rounded-xl col-span-12 xl:col-span-8">
           <Tab.Group>
             <Tab.List>
               <Tab as={Fragment}>
@@ -165,7 +165,7 @@ const Exchange = () => {
           </Tab.Group>
         </div>
         {/* Doughunt chart  */}
-        <div className="bg-Primary-3 col-span-12 lg:col-span-4 rounded-xl p-4 md:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 xl:col-span-4 rounded-xl p-4 md:px-7 md:py-6">
           <DoughnutChart />
           <div className="text-center mt-2 lg:mt-5">
             <h4 className="text-xl xxl:text-2xl text-Neutral-6 leading-[36px]">
@@ -184,7 +184,7 @@ const Exchange = () => {
 
       {/* Market Trades */}
       <section className="mt-6 gap-6 grid grid-cols-12">
-        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl col-span-12 lg:col-span-8">
+        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl col-span-12 xl:col-span-8">
           <div>
             <Tab.Group>
               <div className="flex flex-wrap gap-2 justify-between items-center">
@@ -323,7 +323,7 @@ const Exchange = () => {
           </div>
         </div>
 
-        <div className="bg-Primary-3 p-3 lg:p-5 xl-7 rounded-xl col-span-12 lg:col-span-4">
+        <div className="bg-Primary-3 p-3 lg:p-5 xl-7 rounded-xl col-span-12 xl:col-span-4">
           <Tab.Group>
             <Tab.List className="flex flex-wrap gap-5">
               <Tab as={Fragment}>

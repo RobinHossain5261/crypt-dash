@@ -2,7 +2,7 @@ export const sidenavData = [
   {
     id: 1,
     name: "Dashboard",
-    url: "/dashboard",
+    url: "/",
     icon: "dashboard",
   },
   {

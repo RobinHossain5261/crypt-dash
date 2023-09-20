@@ -15,6 +15,10 @@ type navProps = {
   opened: number | null;
 };
 
+type headerProps = {
+  handleOpen: (e: any) => void;
+};
+
 const languages = [
   { id: 1, name: "English (US)", unavailable: false },
   { id: 2, name: "Bangla (BN)", unavailable: false },
@@ -30,11 +34,22 @@ const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
         navOpen ? "ml-0" : "ml-[-260px]"
       } lg:ml-0 w-[260px] transiton-all duration-300 ease-out z-20 overflow-x-hidden overflow-y-auto fixed top-0 bottom-0 bg-[#212B39] flex flex-col p-3 md:p-5 xl:px-6 xl:py-8 min-h-screen shadow-lg lg:shadow-none scrollbarthin bg-neutral1white  text-white`}
     >
-      <Link href="/" className="flex items-center gap-2 mb-10 cursor-pointer">
-        <Image className="w-10 h-[42px]" src={logo} alt="company logo" />
-        <h1 className="text-white text-2xl font-bold">
-          Crypt<span className="text-Primary-2">Dash</span>
-        </h1>
+      <Link href="/" className="flex items-center gap-8 mb-10">
+        <span className="flex items-center gap-2  cursor-pointer">
+          <Image className="w-10 h-[42px]" src={logo} alt="company logo" />
+          <span className="text-white text-2xl font-bold">
+            Crypt<span className="text-Primary-2">Dash</span>
+          </span>
+        </span>
+
+        <span
+          onClick={() => setNavOpen(!navOpen)}
+          className="lg:hidden  text-white bg-Primary-bg flex items-center rounded px-1"
+        >
+          <span className="material-symbols-outlined  cursor-pointer !text-2xl">
+            close
+          </span>
+        </span>
       </Link>
       <ul>
         {sidenavData?.map((item) => (

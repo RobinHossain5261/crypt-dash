@@ -22,9 +22,9 @@ const SignUp = () => {
           <p className="text-white text-lg leading-[27px]">
             Already Have An Account? Sign In
           </p>
-          <button className="text-Primary-3 bg-[#3EBF81] text-xs leading-[18px] px-4 py-2 rounded-lg btnShadow my-8">
+          <div className="w-20 text-center text-Primary-3 bg-[#3EBF81] text-xs leading-[18px] px-4 py-2 rounded-lg btnShadow my-8">
             <Link href="/utillity/sign_in">Sign In</Link>
-          </button>
+          </div>
           <Image src={sign} alt="sign" />
         </div>
 
