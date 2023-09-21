@@ -11,10 +11,11 @@ import achain from "@/../public/images/dashboardTable/achain.png";
 import ellaism from "@/../public/images/dashboardTable/ellaism.png";
 import tron from "@/../public/images/dashboardTable/tron.png";
 import binance from "@/../public/images/dashboardTable/binance.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const progres = [
   {
-    id: 1,
+    id: uuidv4(),
     name: "Exchange Balance",
     balance: "0.397466349",
     usd: "4,897.94 USD",
@@ -25,7 +26,7 @@ export const progres = [
     chart: graph,
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: "Assets Balance",
     balance: "0.896209960",
     usd: "4,254.77 USD",
@@ -39,7 +40,7 @@ export const progres = [
 
 export const currencyPrices = [
   {
-    id: 1,
+    id: uuidv4(),
     asset: "Ethereum (ETH)",
     order: "$337,401.26",
     availableBalance: "$574,457.60",
@@ -49,7 +50,7 @@ export const currencyPrices = [
     img: Tether,
   },
   {
-    id: 2,
+    id: uuidv4(),
     asset: "Bitcoin (BTC)",
     order: "$241,779.50",
     availableBalance: "$233,918.01",
@@ -59,7 +60,7 @@ export const currencyPrices = [
     img: Bitcoin,
   },
   {
-    id: 3,
+    id: uuidv4(),
     asset: "Ethereum (ETH)",
     order: "$214,955.56",
     availableBalance: "$552,606.82",
@@ -69,7 +70,7 @@ export const currencyPrices = [
     img: Ethereum,
   },
   {
-    id: 4,
+    id: uuidv4(),
     asset: "Litecoin (LTC)",
     order: "$1,084,627.28",
     availableBalance: "$16,057.84",
@@ -79,7 +80,7 @@ export const currencyPrices = [
     img: Litecoin,
   },
   {
-    id: 5,
+    id: uuidv4(),
     asset: "Loopring (LRC)",
     order: "$408,135.41",
     availableBalance: "$498,126.85",
@@ -89,7 +90,7 @@ export const currencyPrices = [
     img: Ethereum,
   },
   {
-    id: 6,
+    id: uuidv4(),
     asset: "Binance (BNB)",
     order: "$454,650.05",
     availableBalance: "$365,663.57",
@@ -99,7 +100,7 @@ export const currencyPrices = [
     img: binance,
   },
   {
-    id: 7,
+    id: uuidv4(),
     asset: "Dogecoin (Doge)",
     order: "$786,777.76",
     availableBalance: "$574,457.60",
@@ -109,7 +110,7 @@ export const currencyPrices = [
     img: Dogecoin,
   },
   {
-    id: 8,
+    id: uuidv4(),
     asset: "TRON (TRX)",
     order: "$432,726.23",
     availableBalance: "$119,754.72",
@@ -119,7 +120,7 @@ export const currencyPrices = [
     img: tron,
   },
   {
-    id: 9,
+    id: uuidv4(),
     asset: "Ellaism (ELLA)",
     order: "$1,002,578.65",
     availableBalance: "$345,362.05",
@@ -129,7 +130,7 @@ export const currencyPrices = [
     img: ellaism,
   },
   {
-    id: 10,
+    id: uuidv4(),
     asset: "Achain (ACT)",
     order: "$376,218.86",
     availableBalance: "$214,955.56",

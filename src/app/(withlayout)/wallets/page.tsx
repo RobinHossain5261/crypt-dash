@@ -8,7 +8,7 @@ const Wallets = () => {
   return (
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
       <section className="gap-6 grid grid-cols-12">
-        <div className="bg-Primary-3 col-span-12 lg:col-span-4 xl:col-span-3 rounded-xl p-2 md:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 lg:col-span-4 xl:col-span-3 rounded-xl p-4 md:px-7 md:py-6">
           <div className="text-center mt-2 lg:mt-5">
             <div className="flex items-center justify-center gap-2 mb-3 lg:mb-7">
               <Image
@@ -35,14 +35,12 @@ const Wallets = () => {
             </div>
           </div>
         </div>
-        <div className="bg-Primary-3 col-span-12 lg:col-span-8 rounded-xl p-2 md:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 lg:col-span-8 rounded-xl p-4 md:px-7 md:py-6">
           {progres.map((item) => (
             <div key={item.id} className="mb-7">
               <div className="flex justify-between mb-4">
                 <div>
-                  <h5 className="text-base text-Neutral-6 leading-[24px]">
-                    {item.name}
-                  </h5>
+                  <h5>{item.name}</h5>
                   <h4 className="text-xl text-white font-semibold leading-[26px] my-2">
                     {item.balance}
                   </h4>
@@ -72,34 +70,27 @@ const Wallets = () => {
         </div>
       </section>
       <section className="grid grid-cols-12">
-        <div className="p-2 md:px-7 md:py-5 bg-Primary-3 mt-6 col-span-12 xl:col-span-11 rounded-xl">
+        <div className="p-4 md:px-7 md:py-5 bg-Primary-3 mt-6 col-span-12 xl:col-span-11 rounded-xl">
           <h5 className="text-xl text-Neutral-6 font-semibold leading-[26px] mb-7">
             Today's Cryptocurrency Prices
           </h5>
           <div className="overflow-x-auto">
             <table className="table whitespace-nowrap">
               <thead>
-                <tr className="border-Neutral-7">
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Asset
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    On Order
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Available Balance
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Total Balances
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    24H Market
-                  </th>
+                <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
+                  <th>Asset</th>
+                  <th>On Order</th>
+                  <th>Available Balance</th>
+                  <th>Total Balances</th>
+                  <th>24H Market</th>
                 </tr>
               </thead>
               <tbody>
                 {currencyPrices.map((item) => (
-                  <tr key={item.id} className="border-Neutral-7">
+                  <tr
+                    key={item.id}
+                    className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                  >
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -108,33 +99,24 @@ const Wallets = () => {
                           </div>
                         </div>
                         <div>
-                          <div className="text-base text-Neutral-6 leading-[24px]">
-                            {item.asset}
-                          </div>
+                          <div>{item.asset}</div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {item.order}
-                      </div>
+                      <div>{item.order}</div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {item.availableBalance}
-                      </div>
+                      <div>{item.availableBalance}</div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {item.totalBalance}
-                      </div>
+                      <div>{item.totalBalance}</div>
                     </td>
                     <td>
                       <div
                         style={{
                           color: item.color,
                         }}
-                        className="text-base text-Neutral-6 leading-[24px] px-3 py-1 rounded"
                       >
                         {item.market}
                       </div>

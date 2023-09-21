@@ -7,6 +7,7 @@ import AnimateHeight from "react-animate-height";
 import logo from "@/../public/images/logo.png";
 import { sidenavData } from "../../../public/data/sidenavData";
 import { Listbox } from "@headlessui/react";
+import { v4 as uuidv4 } from "uuid";
 
 type navProps = {
   navOpen: boolean;
@@ -15,14 +16,10 @@ type navProps = {
   opened: number | null;
 };
 
-type headerProps = {
-  handleOpen: (e: any) => void;
-};
-
 const languages = [
-  { id: 1, name: "English (US)", unavailable: false },
-  { id: 2, name: "Bangla (BN)", unavailable: false },
-  { id: 3, name: "Arbic (SA)", unavailable: false },
+  { id: uuidv4(), name: "English (US)", unavailable: false },
+  { id: uuidv4(), name: "Bangla (BN)", unavailable: false },
+  { id: uuidv4(), name: "Arbic (SA)", unavailable: false },
 ];
 
 const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
@@ -32,7 +29,7 @@ const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
     <nav
       className={`${
         navOpen ? "ml-0" : "ml-[-260px]"
-      } lg:ml-0 w-[260px] transiton-all duration-300 ease-out z-20 overflow-x-hidden overflow-y-auto fixed top-0 bottom-0 bg-[#212B39] flex flex-col p-3 md:p-5 xl:px-6 xl:py-8 min-h-screen shadow-lg lg:shadow-none scrollbarthin bg-neutral1white  text-white`}
+      } lg:ml-0 w-[260px] transiton-all duration-300 ease-out z-20 overflow-x-hidden overflow-y-auto fixed top-0 bottom-0 bg-[#212B39] flex flex-col p-3 md:p-5 xl:px-6 xl:py-8 min-h-screen shadow-lg lg:shadow-none scrollbarthin  text-white`}
     >
       <Link href="/" className="flex items-center gap-8 mb-10">
         <span className="flex items-center gap-2  cursor-pointer">
@@ -55,15 +52,15 @@ const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
         {sidenavData?.map((item) => (
           <li
             key={item.id}
-            className={`hover:text-Neutral-8 text-Neutral-6 text-base font-semibold border border-Neutral-7 hover:border-Neutral-8 px-4 py-3 rounded-lg mb-4 cursor-pointer ${
+            className={`hover:text-Neutral-8 text-Neutral-6 text-base font-semibold border border-Neutral-7 hover:border-Neutral-8 rounded-lg mb-4 cursor-pointer ${
               path == item.url && "text-Neutral-8 border-Neutral-8"
             }`}
           >
-            {item.url ? (
+            {item?.url ? (
               <Link
                 href={item.url}
                 onClick={() => setNavOpen(false)}
-                className={`flex gap-2 `}
+                className="flex gap-2 py-3 px-4"
               >
                 <span className="material-symbols-outlined">{item.icon}</span>
                 <span>{item.name}</span>
@@ -73,7 +70,7 @@ const Sidebar = ({ navOpen, opened, setOpened, setNavOpen }: navProps) => {
                 onClick={() =>
                   setOpened((prev: any) => (prev == item.id ? null : item.id))
                 }
-                className={`flex gap-2 items-center justify-between ${
+                className={`flex gap-2 items-center justify-between py-3 px-4 ${
                   item.id == opened && " border-[#3EBF81] hover:text-[#D2D9E4]"
                 }`}
               >

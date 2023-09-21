@@ -25,15 +25,20 @@ const TopBar = ({ handleOpen }: headerProps) => {
             menu
           </span>
         </button>
-        <form className="hidden lg:flex items-center border border-Neutral-1 px-4 py-3 rounded-lg ml-8">
+        <form className="hidden md:block relative  ml-8">
           <input
             type="text"
             placeholder="Search..."
-            className="outline-none text-Neutral-5 bg-Neutral-2"
+            id="input"
+            name="input"
+            className="px-4 py-3  rounded-lg focus-within:border-Neutral-8  text-Neutral-5 bg-Neutral-2 outline-none border border-Neutral-1"
           />
-          <span className="material-symbols-outlined cursor-pointer text-Neutral-6">
+          <label
+            htmlFor="input"
+            className="material-symbols-outlined cursor-pointer text-Neutral-6 absolute right-3 top-3"
+          >
             search
-          </span>
+          </label>
         </form>
       </div>
 
@@ -156,18 +161,18 @@ const TopBar = ({ handleOpen }: headerProps) => {
           className="relative inline-block text-left pr-3 md:pr-6 lg:pr-10 mt-1"
         >
           <Menu.Button>
-            <span className="flex items-center cursor-pointer">
+            <span className="flex gap-2 items-center cursor-pointer">
               <span>
-                <span className="w-12 h-12 md:w-[60px] md:h-[60px] rounded-full mr-3">
+                <span className="w-12 h-12 md:w-[60px] md:h-[60px] rounded-full mt-1">
                   <Image src={user} alt="User" />
                 </span>
               </span>
               <span className="lg:flex items-center hidden">
                 <span>
-                  <span className="text-base text-white font-semibold">
+                  <span className="text-base text-white font-semibold block">
                     Kim Griffith
                   </span>
-                  <span className="text-xs text-Neutral-6 text-left">
+                  <span className="text-xs text-Neutral-6 text-left block">
                     Admin
                   </span>
                 </span>

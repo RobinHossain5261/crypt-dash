@@ -14,31 +14,32 @@ import Litecoin from "@/../public/images/dashboardTable/litecoin.png";
 import Stellar from "@/../public/images/dashboardTable/stellar.png";
 import Dogecoin from "@/../public/images/dashboardTable/dogecoin.png";
 import Tether from "@/../public/images/dashboardTable/tether.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const smallCharts = [
   {
-    id: 1,
+    id: uuidv4(),
     name: "Bitcoin",
     price: "$1200.00",
     img: bitcoin,
     chart: <BitcoinChart />,
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: "Ethereum",
     price: "$100.00",
     img: ethereum,
     chart: <EthereumChart />,
   },
   {
-    id: 3,
+    id: uuidv4(),
     name: "Litecoin",
     price: "$2500.00",
     img: litecoin,
     chart: <LitecoinChart />,
   },
   {
-    id: 4,
+    id: uuidv4(),
     name: "Binance",
     price: "$3200.00",
     img: binance,
@@ -48,7 +49,7 @@ export const smallCharts = [
 
 export const tableData = [
   {
-    id: 1,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Bitcoin",
     date: "Apr 14,2023",
@@ -60,7 +61,7 @@ export const tableData = [
     bgColor: "rgba(252, 119, 74, 0.08)",
   },
   {
-    id: 2,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Ethereum",
     date: "Apr 09,2023",
@@ -72,7 +73,7 @@ export const tableData = [
     bgColor: "rgba(62, 191, 129, 0.08)",
   },
   {
-    id: 3,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Litecoin",
     date: "Nov 16, 2023",
@@ -84,7 +85,7 @@ export const tableData = [
     bgColor: "rgba(252, 119, 74, 0.08)",
   },
   {
-    id: 4,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Stellar",
     date: "Dec 18, 2023",
@@ -96,7 +97,7 @@ export const tableData = [
     bgColor: "rgba(62, 191, 129, 0.08)",
   },
   {
-    id: 5,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Dogecoin",
     date: "Jul 11, 2023",
@@ -108,7 +109,7 @@ export const tableData = [
     bgColor: "rgba(252, 119, 74, 0.08)",
   },
   {
-    id: 6,
+    id: uuidv4(),
     type: "Exchange",
     asset: "Tether",
     date: "Aug 27, 2023",
@@ -123,42 +124,42 @@ export const tableData = [
 
 export const transactions = [
   {
-    id: 1,
+    id: uuidv4(),
     asset: "Bitcoin",
     time: "Today, 13.50 PM",
     money: "$47,515",
     img: bitcoin,
   },
   {
-    id: 2,
+    id: uuidv4(),
     asset: "Ethereum",
     time: "Today, 13.50 PM",
     money: "$3,401",
     img: ethereum,
   },
   {
-    id: 3,
+    id: uuidv4(),
     asset: "Litecoin",
     time: "Today, 13.50 PM",
     money: "$31,401",
     img: litecoin,
   },
   {
-    id: 4,
+    id: uuidv4(),
     asset: "Dogecoin",
     time: "Today, 13.50 PM",
     money: "$2,65",
     img: Dogecoin,
   },
   {
-    id: 5,
+    id: uuidv4(),
     asset: "Ethereum",
     time: "Today, 13.50 PM",
     money: "$22,65",
     img: ethereum,
   },
   {
-    id: 6,
+    id: uuidv4(),
     asset: "Tether",
     time: "Today, 13.50 PM",
     money: "$120,83",

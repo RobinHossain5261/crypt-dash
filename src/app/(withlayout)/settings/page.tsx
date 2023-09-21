@@ -3,22 +3,22 @@ import React, { Fragment, useState, useRef } from "react";
 import profile from "@/../public/images/profile.png";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
-import "material-symbols";
 import { Listbox, Tab } from "@headlessui/react";
 import code from "@/../public/images/Code.png";
 import { loginHistory } from "../../../../public/data/settingsData";
 import Link from "next/link";
 import OtpInput from "react-otp-input";
+import { v4 as uuidv4 } from "uuid";
 
 const depositAssets = [
-  { id: 1, name: "Disabled", unavailable: false },
-  { id: 2, name: "2500", unavailable: false },
-  { id: 3, name: "1500", unavailable: false },
+  { id: uuidv4(), name: "Disabled", unavailable: false },
+  { id: uuidv4(), name: "2500", unavailable: false },
+  { id: uuidv4(), name: "1500", unavailable: false },
 ];
 const withdrawAssets = [
-  { id: 1, name: "Enabled 1,11000 USD/Day", unavailable: false },
-  { id: 2, name: "2500", unavailable: false },
-  { id: 3, name: "1500", unavailable: false },
+  { id: uuidv4(), name: "Enabled 1,11000 USD/Day", unavailable: false },
+  { id: uuidv4(), name: "2500", unavailable: false },
+  { id: uuidv4(), name: "1500", unavailable: false },
 ];
 
 const Settings = () => {
@@ -53,7 +53,7 @@ const Settings = () => {
   return (
     <div className="bg-Primary-bg p-3 lg:p-6 min-h-screen">
       <section className="block lg:flex gap-6 w-full">
-        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl h-full">
+        <div className="bg-Primary-3 p-4 lg:px-7 lg:py-6 rounded-xl h-full">
           <div className="relative">
             <Image
               src={profile}
@@ -115,7 +115,7 @@ const Settings = () => {
           </div>
           <hr className="mt-5 border-Neutral-10" />
         </div>
-        <div className="bg-Primary-3 p-2 lg:px-7 lg:py-6 rounded-xl w-full h-full mt-6 lg:mt-0">
+        <div className="bg-Primary-3 p-4 lg:px-7 lg:py-6 rounded-xl w-full h-full mt-6 lg:mt-0">
           <Tab.Group>
             <Tab.List className="flex flex-wrap gap-2 xl:gap-10 mb-3 xl:mb-8">
               <Tab as={Fragment}>
@@ -526,14 +526,13 @@ const Settings = () => {
                       After scanning the image, the app will display a six-digit
                       code that you can enter below
                     </span>
-                    <form className="my-7">
+                    <form className="my-7 otp-input">
                       <OtpInput
                         inputStyle={{
                           borderRadius: "5px",
-                          width: "40px",
+                          width: "37px",
                           height: "30px",
                           color: "#3EBF81",
-                          outlineColor: "#3EBF81",
                           backgroundColor: "transparent",
                           border: "1px solid #424A55",
                         }}
@@ -541,7 +540,7 @@ const Settings = () => {
                         value={otp}
                         onChange={setOtp}
                         numInputs={6}
-                        renderSeparator={<span>-</span>}
+                        renderSeparator={<span>&nbsp;&nbsp;</span>}
                         renderInput={(props) => <input {...props} />}
                       />
                       <span className="text-xs text-Neutral-6 leading-[18px] mt-2">

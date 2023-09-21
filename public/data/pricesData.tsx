@@ -13,10 +13,11 @@ import graph from "@/../public/images/graph/Graph.png";
 import graph1 from "@/../public/images/graph/Graph1.png";
 import graph2 from "@/../public/images/graph/Graph2.png";
 import graph3 from "@/../public/images/graph/Graph3.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const prices = [
   {
-    id: 1,
+    id: uuidv4(),
     name: "Ethereum (ETH)",
     price: "$326,600",
     parcent: "+2.33%",
@@ -28,7 +29,7 @@ export const prices = [
     charts: graph,
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: "Bitcoin (BTC)",
     price: " $657,200 ",
     parcent: "-1.03%",
@@ -39,7 +40,7 @@ export const prices = [
     charts: graph1,
   },
   {
-    id: 3,
+    id: uuidv4(),
     name: "Loopring (LRC)",
     price: "$349,400",
     parcent: "-0.03%",
@@ -50,7 +51,7 @@ export const prices = [
     charts: graph3,
   },
   {
-    id: 4,
+    id: uuidv4(),
     name: "Litecoin (LTC)",
     price: " $653,400 ",
     parcent: "+5.93%",
@@ -61,7 +62,7 @@ export const prices = [
     charts: graph2,
   },
   {
-    id: 5,
+    id: uuidv4(),
     name: "Dogecoin (Doge)",
     price: "$311,400",
     parcent: "+1.23%",
@@ -72,7 +73,7 @@ export const prices = [
     charts: graph,
   },
   {
-    id: 6,
+    id: uuidv4(),
     name: "Tether (USDT)",
     price: "$581,200",
     parcent: "+3.33%",
@@ -83,7 +84,7 @@ export const prices = [
     charts: graph2,
   },
   {
-    id: 7,
+    id: uuidv4(),
     name: "Achain (ACT)",
     price: "$471,000",
     parcent: "-0.33%",
@@ -94,7 +95,7 @@ export const prices = [
     charts: graph3,
   },
   {
-    id: 8,
+    id: uuidv4(),
     name: "Ellaism (ELLA)",
     price: " $676,200 ",
     parcent: "+3.99%",
@@ -105,7 +106,7 @@ export const prices = [
     charts: graph2,
   },
   {
-    id: 9,
+    id: uuidv4(),
     name: "TRON (TRX)",
     price: " $524,200",
     parcent: "+2.88%",
@@ -116,7 +117,7 @@ export const prices = [
     charts: graph,
   },
   {
-    id: 10,
+    id: uuidv4(),
     name: "Binance (BNB)",
     price: "$10791.43",
     parcent: "+5.93%",

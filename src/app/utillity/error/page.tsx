@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import error from "@/../public/images/error.png";
 import Link from "next/link";
-import "material-symbols";
 
 const Error = () => {
   return (

@@ -8,10 +8,11 @@ import achain from "@/../public/images/dashboardTable/achain.png";
 import ellaism from "@/../public/images/dashboardTable/ellaism.png";
 import tron from "@/../public/images/dashboardTable/tron.png";
 import binance from "@/../public/images/dashboardTable/binance.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const history = [
   {
-    id: 1,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Bitcoin (BTC)",
     date: "21 Sep, 2023",
@@ -21,7 +22,7 @@ export const history = [
     img: Bitcoin,
   },
   {
-    id: 2,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Tether (USDT)",
     date: "17 Oct, 2023",
@@ -31,7 +32,7 @@ export const history = [
     img: Tether,
   },
   {
-    id: 3,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Ethereum (ETH) ",
     date: "21 Sep, 2023",
@@ -41,7 +42,7 @@ export const history = [
     img: Ethereum,
   },
   {
-    id: 4,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Litecoin (LTC)",
     date: "1 Feb, 2023",
@@ -51,7 +52,7 @@ export const history = [
     img: Litecoin,
   },
   {
-    id: 5,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Dogecoin (Doge) ",
     date: "22 Oct, 2023",
@@ -61,7 +62,7 @@ export const history = [
     img: Dogecoin,
   },
   {
-    id: 6,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Binance (BTC) ",
     date: "22 Oct, 2023",
@@ -71,7 +72,7 @@ export const history = [
     img: binance,
   },
   {
-    id: 7,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "TRON (TRX)",
     date: "22 Oct, 2023",
@@ -81,7 +82,7 @@ export const history = [
     img: tron,
   },
   {
-    id: 8,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Bitcoin (BTC)",
     date: "21 Sep, 2023",
@@ -91,7 +92,7 @@ export const history = [
     img: Bitcoin,
   },
   {
-    id: 9,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Loopring (LRC) ",
     date: "21 Sep, 2023",
@@ -101,7 +102,7 @@ export const history = [
     img: Litecoin,
   },
   {
-    id: 10,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Ethereum (ETH) ",
     date: "8 Sep, 2023",
@@ -111,7 +112,7 @@ export const history = [
     img: ellaism,
   },
   {
-    id: 11,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Achain (ACT)",
     date: "21 Sep, 2023",
@@ -121,7 +122,7 @@ export const history = [
     img: achain,
   },
   {
-    id: 12,
+    id: uuidv4(),
     transaction: "#1455548",
     type: "Loopring (LRC)",
     date: "09 Sep, 2023",

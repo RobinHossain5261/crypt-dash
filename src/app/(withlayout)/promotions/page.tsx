@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
 import { promotions } from "../../../../public/data/promotionsData";
 import Image from "next/image";
-import "material-symbols";
 
 const Promotions = () => {
   return (

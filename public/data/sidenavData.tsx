@@ -1,54 +1,56 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const sidenavData = [
   {
-    id: 1,
+    id: 456001,
     name: "Dashboard",
     url: "/",
     icon: "dashboard",
   },
   {
-    id: 2,
+    id: 456002,
     name: "Exchange",
     url: "/exchange",
     icon: "sync",
   },
   {
-    id: 3,
+    id: 456003,
     name: "Prices",
     url: "/prices",
     icon: "payments",
   },
   {
-    id: 4,
+    id: 456004,
     name: "Wallets",
     url: "/wallets",
     icon: "account_balance_wallet",
   },
   {
-    id: 5,
+    id: 456005,
     name: "Promotions",
     url: "/promotions",
     icon: "percent",
   },
   {
-    id: 6,
+    id: 456006,
     name: "Activities",
     url: "/activities",
     icon: "insights",
   },
   {
-    id: 7,
+    id: 456007,
     name: "Notifications",
     url: "/notifications",
     icon: "notifications",
   },
   {
-    id: 8,
+    id: 456008,
     name: "Settings",
     url: "/settings",
     icon: "settings",
   },
   {
-    id: 9,
+    id: 456009,
     name: "Utilities",
     icon: "construction",
     submenus: [
@@ -63,7 +65,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 10,
+    id: 4560010,
     name: "Authentication",
     icon: "work",
     submenus: [

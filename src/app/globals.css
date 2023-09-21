@@ -10,6 +10,11 @@ body {
     overflow-x: hidden;
 }
 
+.otp-input input:focus{
+outline: 1px solid #3EBF81;
+
+}
+
 .activePath {
   color: #3EBF81;
   border:1px solid #3EBF81;

@@ -6,10 +6,11 @@ import buyer5 from "@/../public/images/notifications/buyer5.png";
 import buyer6 from "@/../public/images/notifications/buyer6.png";
 import buyer7 from "@/../public/images/notifications/buyer7.png";
 import buyer8 from "@/../public/images/notifications/buyer8.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const notifications = [
   {
-    id: 1,
+    id: uuidv4(),
     img: buyer1,
     name: "Brain Cumin",
     title: "commented on your post",
@@ -17,7 +18,7 @@ export const notifications = [
     time: "3 Days Ago",
   },
   {
-    id: 2,
+    id: uuidv4(),
     img: buyer2,
     name: "Marianne Floyd",
     title: "commented on your post",
@@ -25,7 +26,7 @@ export const notifications = [
     time: "8 Days Ago",
   },
   {
-    id: 3,
+    id: uuidv4(),
     img: buyer3,
     name: "Valerie Nelson",
     title: "commented on your post",
@@ -33,7 +34,7 @@ export const notifications = [
     time: "7 Days Ago",
   },
   {
-    id: 4,
+    id: uuidv4(),
     img: buyer4,
     name: "Ben Castro",
     title: "commented on your post",
@@ -41,7 +42,7 @@ export const notifications = [
     time: "8 Days Ago",
   },
   {
-    id: 5,
+    id: uuidv4(),
     img: buyer5,
     name: "Nadia Henry",
     title: "commented on your post",
@@ -49,7 +50,7 @@ export const notifications = [
     time: "1 Days Ago",
   },
   {
-    id: 6,
+    id: uuidv4(),
     img: buyer6,
     name: "Gayle Homes",
     title: "commented on your post",
@@ -57,7 +58,7 @@ export const notifications = [
     time: "2 Days Ago",
   },
   {
-    id: 7,
+    id: uuidv4(),
     img: buyer7,
     name: "Sylvia Hoffman",
     title: "commented on your post",
@@ -65,7 +66,7 @@ export const notifications = [
     time: "5 Days Ago",
   },
   {
-    id: 8,
+    id: uuidv4(),
     img: buyer8,
     name: "Camille Sullivan",
     title: "commented on your post",

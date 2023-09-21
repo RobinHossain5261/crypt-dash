@@ -1,5 +1,4 @@
 import React from "react";
-import "material-symbols";
 import { notifications } from "../../../../public/data/notificationsData";
 import Image from "next/image";
 import Link from "next/link";
@@ -60,15 +59,15 @@ const Notifications = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-content z-[1] p-4 shadow bg-Neutral-2 text-white rounded-box w-40 cursor-pointer"
+                      className="dropdown-content z-[1] p-4 shadow bg-Neutral-2 text-white rounded-box w-40 cursor-pointer "
                     >
-                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                      <li className="hover:bg-Neutral-8 p-2 rounded transition-all ease-in duration-300">
                         <Link href="#">Delete</Link>
                       </li>
-                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                      <li className="hover:bg-Neutral-8 p-2 rounded transition-all ease-in duration-300">
                         <Link href="#">Edit</Link>
                       </li>
-                      <li className="hover:bg-Neutral-8 p-2 rounded">
+                      <li className="hover:bg-Neutral-8 p-2 rounded transition-all ease-in duration-300">
                         <Link href="#">Suspend</Link>
                       </li>
                     </ul>

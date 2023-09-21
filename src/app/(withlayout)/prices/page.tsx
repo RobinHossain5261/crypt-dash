@@ -2,14 +2,14 @@
 import Image from "next/image";
 import { smallCharts } from "../../../../public/data/dashBoardData";
 import { prices } from "../../../../public/data/pricesData";
-import "material-symbols";
 import { Listbox } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const times = [
-  { id: 1, name: "All Times", unavailable: false },
-  { id: 2, name: "This Month", unavailable: false },
-  { id: 3, name: "This Week", unavailable: false },
+  { id: uuidv4(), name: "All Times", unavailable: false },
+  { id: uuidv4(), name: "This Month", unavailable: false },
+  { id: uuidv4(), name: "This Week", unavailable: false },
 ];
 
 const Prices = () => {
@@ -41,7 +41,7 @@ const Prices = () => {
           </div>
         ))}
       </section>
-      <section className="mt-6 bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6">
+      <section className="mt-6 bg-Primary-3 rounded-xl p-4 lg:px-7 lg:py-6">
         <div className="flex flex-wrap items-center justify-between">
           <h5 className="text-xl font-semibold text-white leading-[26px] mb-5">
             Cryptocurrency Prices
@@ -82,37 +82,24 @@ const Prices = () => {
         <div className="overflow-x-auto">
           <table className="table whitespace-nowrap">
             <thead>
-              <tr className="border-Neutral-7">
+              <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
                 <th></th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  #
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Name
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Price
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  24h%
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Market Cap
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Volume
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Charts
-                </th>
-                <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                  Action
-                </th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>24h%</th>
+                <th>Market Cap</th>
+                <th>Volume</th>
+                <th>Charts</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {prices.map((data) => (
-                <tr key={data.id} className="border-Neutral-7">
+              {prices.map((data, index) => (
+                <tr
+                  key={data.id}
+                  className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                >
                   <td>
                     <span
                       onClick={handleActiveColor}
@@ -122,9 +109,7 @@ const Prices = () => {
                     </span>
                   </td>
                   <td>
-                    <div className="text-base text-Neutral-6 leading-[24px]">
-                      {data.id}
-                    </div>
+                    <div>{index + 1}</div>
                   </td>
                   <td>
                     <div className="flex items-center space-x-3">
@@ -134,16 +119,12 @@ const Prices = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="text-base text-Neutral-6 leading-[24px]">
-                          {data.name}
-                        </div>
+                        <div>{data.name}</div>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <div className="text-base text-Neutral-6 leading-[24px]">
-                      {data.price}
-                    </div>
+                    <div>{data.price}</div>
                   </td>
 
                   <td>
@@ -151,20 +132,15 @@ const Prices = () => {
                       style={{
                         color: data.color,
                       }}
-                      className="text-base text-Neutral-6 leading-[24px] px-3 py-1 rounded"
                     >
                       {data.parcent}
                     </div>
                   </td>
                   <td>
-                    <div className="text-base text-Neutral-6 leading-[24px]">
-                      {data.cap}
-                    </div>
+                    <div>{data.cap}</div>
                   </td>
                   <td>
-                    <div className="text-base text-Neutral-6 leading-[24px]">
-                      {data.volume}
-                    </div>
+                    <div>{data.volume}</div>
                   </td>
                   <td>
                     <Image

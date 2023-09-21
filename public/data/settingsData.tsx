@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const loginHistory = [
   {
-    id: 1,
+    id: uuidv4(),
     date: "Dec 2, 1:30pm",
     device: "iMac Pro",
     location: "United States",
@@ -9,7 +11,7 @@ export const loginHistory = [
     color: "#3EBF81",
   },
   {
-    id: 2,
+    id: uuidv4(),
     date: "Dec 2, 1:14pm",
     device: "Mobile",
     location: "United States",
@@ -18,7 +20,7 @@ export const loginHistory = [
     color: "#FC774A",
   },
   {
-    id: 3,
+    id: uuidv4(),
     date: "Dec 2, 1:12pm",
     device: "iMac Pro",
     location: "United States",
@@ -27,7 +29,7 @@ export const loginHistory = [
     color: "#3EBF81",
   },
   {
-    id: 4,
+    id: uuidv4(),
     date: "Dec 2, 1:00pm",
     device: "Tablet",
     location: "United States",
@@ -36,7 +38,7 @@ export const loginHistory = [
     color: "#FC774A",
   },
   {
-    id: 5,
+    id: uuidv4(),
     date: "Dec 2, 1:22pm",
     device: "Laptop",
     location: "United States",
@@ -45,7 +47,7 @@ export const loginHistory = [
     color: "#FC774A",
   },
   {
-    id: 6,
+    id: uuidv4(),
     date: "Dec 2, 1:16pm",
     device: "Desktop",
     location: "United States",
@@ -54,7 +56,7 @@ export const loginHistory = [
     color: "#3EBF81",
   },
   {
-    id: 7,
+    id: uuidv4(),
     date: "Dec 2, 1:10pm",
     device: "iPhone X",
     location: "United States",

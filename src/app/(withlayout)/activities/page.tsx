@@ -3,11 +3,12 @@ import React, { Fragment, useState } from "react";
 import { Listbox, Tab } from "@headlessui/react";
 import { history } from "../../../../public/data/activitiesData";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
 const times = [
-  { id: 1, name: "All Times", unavailable: false },
-  { id: 2, name: "This Month", unavailable: false },
-  { id: 3, name: "This Week", unavailable: false },
+  { id: uuidv4(), name: "All Times", unavailable: false },
+  { id: uuidv4(), name: "This Month", unavailable: false },
+  { id: uuidv4(), name: "This Week", unavailable: false },
 ];
 
 const Activities = () => {
@@ -93,7 +94,7 @@ const Activities = () => {
                 <div className="overflow-x-auto">
                   <table className="table whitespace-nowrap">
                     <thead>
-                      <tr className="border-Neutral-7">
+                      <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
                         <th>
                           <label>
                             <input
@@ -102,26 +103,19 @@ const Activities = () => {
                             />
                           </label>
                         </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Transaction ID
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Type
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Date
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Status
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Amount
-                        </th>
+                        <th>Transaction ID</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Amount</th>
                       </tr>
                     </thead>
                     <tbody>
                       {history.map((item) => (
-                        <tr key={item.id} className="border-Neutral-7">
+                        <tr
+                          key={item.id}
+                          className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                        >
                           <th>
                             <label>
                               <input
@@ -131,9 +125,7 @@ const Activities = () => {
                             </label>
                           </th>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.transaction}
-                            </div>
+                            <div>{item.transaction}</div>
                           </td>
                           <td>
                             <div className="flex items-center space-x-3">
@@ -143,31 +135,24 @@ const Activities = () => {
                                 </div>
                               </div>
                               <div>
-                                <div className="text-base text-Neutral-6 leading-[24px]">
-                                  {item.type}
-                                </div>
+                                <div>{item.type}</div>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.date}
-                            </div>
+                            <div>{item.date}</div>
                           </td>
                           <td>
                             <div
                               style={{
                                 color: item.color,
                               }}
-                              className="text-base text-Neutral-6 leading-[24px]"
                             >
                               {item.status}
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.amount}
-                            </div>
+                            <div>{item.amount}</div>
                           </td>
                         </tr>
                       ))}
@@ -179,7 +164,7 @@ const Activities = () => {
                 <div className="overflow-x-auto">
                   <table className="table whitespace-nowrap">
                     <thead>
-                      <tr className="border-Neutral-7">
+                      <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
                         <th>
                           <label>
                             <input
@@ -188,26 +173,19 @@ const Activities = () => {
                             />
                           </label>
                         </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Transaction ID
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Type
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Date
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Status
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Amount
-                        </th>
+                        <th>Transaction ID</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Amount</th>
                       </tr>
                     </thead>
                     <tbody>
                       {history.map((item) => (
-                        <tr key={item.id} className="border-Neutral-7">
+                        <tr
+                          key={item.id}
+                          className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                        >
                           <th>
                             <label>
                               <input
@@ -217,9 +195,7 @@ const Activities = () => {
                             </label>
                           </th>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.transaction}
-                            </div>
+                            <div>{item.transaction}</div>
                           </td>
                           <td>
                             <div className="flex items-center space-x-3">
@@ -229,31 +205,24 @@ const Activities = () => {
                                 </div>
                               </div>
                               <div>
-                                <div className="text-base text-Neutral-6 leading-[24px]">
-                                  {item.type}
-                                </div>
+                                <div>{item.type}</div>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.date}
-                            </div>
+                            <div>{item.date}</div>
                           </td>
                           <td>
                             <div
                               style={{
                                 color: item.color,
                               }}
-                              className="text-base text-Neutral-6 leading-[24px]"
                             >
                               {item.status}
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.amount}
-                            </div>
+                            <div>{item.amount}</div>
                           </td>
                         </tr>
                       ))}
@@ -265,7 +234,7 @@ const Activities = () => {
                 <div className="overflow-x-auto">
                   <table className="table whitespace-nowrap">
                     <thead>
-                      <tr className="border-Neutral-7">
+                      <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
                         <th>
                           <label>
                             <input
@@ -274,26 +243,19 @@ const Activities = () => {
                             />
                           </label>
                         </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Transaction ID
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Type
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Date
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Status
-                        </th>
-                        <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                          Amount
-                        </th>
+                        <th>Transaction ID</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Amount</th>
                       </tr>
                     </thead>
                     <tbody>
                       {history.map((item) => (
-                        <tr key={item.id} className="border-Neutral-7">
+                        <tr
+                          key={item.id}
+                          className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                        >
                           <th>
                             <label>
                               <input
@@ -303,9 +265,7 @@ const Activities = () => {
                             </label>
                           </th>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.transaction}
-                            </div>
+                            <div>{item.transaction}</div>
                           </td>
                           <td>
                             <div className="flex items-center space-x-3">
@@ -315,31 +275,24 @@ const Activities = () => {
                                 </div>
                               </div>
                               <div>
-                                <div className="text-base text-Neutral-6 leading-[24px]">
-                                  {item.type}
-                                </div>
+                                <div>{item.type}</div>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.date}
-                            </div>
+                            <div>{item.date}</div>
                           </td>
                           <td>
                             <div
                               style={{
                                 color: item.color,
                               }}
-                              className="text-base text-Neutral-6 leading-[24px]"
                             >
                               {item.status}
                             </div>
                           </td>
                           <td>
-                            <div className="text-base text-Neutral-6 leading-[24px]">
-                              {item.amount}
-                            </div>
+                            <div>{item.amount}</div>
                           </td>
                         </tr>
                       ))}

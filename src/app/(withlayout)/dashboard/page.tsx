@@ -36,7 +36,7 @@ const DashBoard = () => {
       {/* Monthly Overall Growth  */}
       <section className="mt-6 gap-6 grid grid-cols-12">
         {/* Line chart  */}
-        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 xl:col-span-9">
+        <div className="bg-Primary-3 rounded-xl p-4 lg:px-7 lg:py-6 col-span-12 xl:col-span-9">
           <div className="flex gap-3 flex-wrap justify-between items-center mb-6">
             <h3 className="text-Neutral-6 text-xl font-semibold leading-[26px]">
               Monthly Overall Growth
@@ -58,7 +58,7 @@ const DashBoard = () => {
           </div>
         </div>
         {/* Doughunt chart  */}
-        <div className="bg-Primary-3 col-span-12 xl:col-span-3 rounded-xl p-2 xxl:px-7 md:py-6">
+        <div className="bg-Primary-3 col-span-12 xl:col-span-3 rounded-xl p-4 xxl:px-7 md:py-6">
           <DoughnutChart />
           <div className="text-center mt-2 lg:mt-5">
             <h4 className="text-2xl text-Neutral-6 leading-[36px]">
@@ -77,41 +77,30 @@ const DashBoard = () => {
 
       <section className="mt-6 gap-6 grid grid-cols-12">
         {/* Table start */}
-        <div className="bg-Primary-3 rounded-xl p-2 lg:px-7 lg:py-6 col-span-12 xxl:col-span-9">
+        <div className="bg-Primary-3 rounded-xl p-4 lg:px-7 lg:py-6 col-span-12 xxl:col-span-9">
           <h5 className="text-xl font-semibold text-white leading-[26px] mb-5">
             Active Overall Growth
           </h5>
           <div className="overflow-x-auto">
             <table className="table whitespace-nowrap">
               <thead>
-                <tr className="border-Neutral-7">
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Type
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Asset
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Date
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    IP Address
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Status List
-                  </th>
-                  <th className="text-base font-bold text-Neutral-6 leading-[24px]">
-                    Amount
-                  </th>
+                <tr className="border-Neutral-7 text-base font-bold text-Neutral-6 leading-[24px]">
+                  <th>Type</th>
+                  <th>Asset</th>
+                  <th>Date</th>
+                  <th>IP Address</th>
+                  <th>Status List</th>
+                  <th>Amount</th>
                 </tr>
               </thead>
               <tbody>
                 {tableData.map((data) => (
-                  <tr key={data.id} className="border-Neutral-7">
+                  <tr
+                    key={data.id}
+                    className="border-Neutral-7 text-base text-Neutral-6 leading-[24px]"
+                  >
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {data.type}
-                      </div>
+                      <div>{data.type}</div>
                     </td>
                     <td>
                       <div className="flex items-center space-x-3">
@@ -121,21 +110,15 @@ const DashBoard = () => {
                           </div>
                         </div>
                         <div>
-                          <div className="text-base text-Neutral-6 leading-[24px]">
-                            {data.asset}
-                          </div>
+                          <div>{data.asset}</div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {data.date}
-                      </div>
+                      <div>{data.date}</div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {data.ip}
-                      </div>
+                      <div>{data.ip}</div>
                     </td>
                     <td>
                       <div
@@ -149,9 +132,7 @@ const DashBoard = () => {
                       </div>
                     </td>
                     <td>
-                      <div className="text-base text-Neutral-6 leading-[24px]">
-                        {data.amount}
-                      </div>
+                      <div>{data.amount}</div>
                     </td>
                   </tr>
                 ))}
@@ -166,28 +147,28 @@ const DashBoard = () => {
           </h5>
           <div>
             {transactions.map((transaction) => (
-              <div>
-                <div className="flex flex-wrap justify-between items-center">
-                  <div className="flex flex-wrap gap-2 items-center">
-                    <Image
-                      className="w-8 h-8 rounded-full"
-                      src={transaction.img}
-                      alt="currency"
-                    />
-                    <div>
-                      <h4 className="text-base text-white Neutral-6 leading-[21px]">
-                        {transaction.asset}
-                      </h4>
-                      <span className="text-sm text-Neutral-6 leading-[21px]">
-                        {transaction.time}
-                      </span>
-                    </div>
+              <div
+                key={transaction.id}
+                className="flex flex-wrap justify-between items-center mb-3 border-b border-Neutral-7 pb-3"
+              >
+                <div className="flex flex-wrap gap-2 items-center">
+                  <Image
+                    className="w-8 h-8 rounded-full"
+                    src={transaction.img}
+                    alt="currency"
+                  />
+                  <div>
+                    <h4 className="text-base text-white Neutral-6 leading-[21px]">
+                      {transaction.asset}
+                    </h4>
+                    <span className="text-sm text-Neutral-6 leading-[21px]">
+                      {transaction.time}
+                    </span>
                   </div>
-                  <h5 className="text-white text-xl font-semibold leading-[26px]">
-                    {transaction.money}
-                  </h5>
                 </div>
-                <hr className="border-Neutral-7 my-3" />
+                <h5 className="text-white text-xl font-semibold leading-[26px]">
+                  {transaction.money}
+                </h5>
               </div>
             ))}
           </div>
